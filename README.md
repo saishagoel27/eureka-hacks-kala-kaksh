@@ -36,7 +36,8 @@
 ## 📸 Screenshots
 
 ### Artisan Dashboard - Collaboration Network
-![Artisan Collaboration](screenshot1.png)
+![Artisan Collaboration]()![WhatsApp Image 2025-09-21 at 22 38 37_68c8b558](https://github.com/user-attachments/assets/3c0a66bf-2dfd-4a11-a27d-6b467979adb6)
+
 *Connect with fellow artisans and build meaningful partnerships*
 
 ### AI-Generated Room Visualization
