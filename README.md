@@ -51,11 +51,13 @@
 *Discover authentic handcrafted products by category*
 
 ### Product Gallery with AI Visualization
-![Product Gallery](screenshot4.png)
+![WhatsApp Image 2025-09-21 at 22 25 33_d90ecec4](https://github.com/user-attachments/assets/8a413423-2683-47a3-934b-68e7a81abe64)
+
 *Browse pottery and ceramics in AI-generated traditional settings*
 
 ### Welcome Experience
-![Welcome Page](screenshot5.png)
+![WhatsApp Image 2025-09-21 at 22 26 26_63be6328](https://github.com/user-attachments/assets/21e66031-900a-4d3a-8789-eb79f67bfe6b)
+
 *Beautiful introduction to the world of Indian handicrafts*
 
 ##  Getting Started
