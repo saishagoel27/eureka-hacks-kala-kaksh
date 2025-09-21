@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Artisan - Kala Kaksh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rose: #f5a6b3; --peach: #f6c1a7; --blush: #f8d2cc;
+      --deep-rose: #b44b63; --mulberry: #6f2b3c; --gold: #c9a646;
+      --ivory: #fff9f2; --forest: #1f5137;
+    }
+    
+    * { box-sizing: border-box; }
+    
+    html, body { 
+      margin: 0; 
+      height: 100%; 
+      scroll-behavior: smooth; 
+      font-family: 'Playfair Display', 'Marcellus', serif;
+    }
+    
+    body {
+      background:
+        radial-gradient(1200px 800px at 20% 10%, rgba(255,204,214,0.45), transparent 60%),
+        radial-gradient(800px 600px at 80% 0%, rgba(255,198,170,0.45), transparent 60%),
+        linear-gradient(180deg, #fff7f1 0%, #fdebe2 60%, #fde5ea 100%);
+      color: #3a2a2a;
+      line-height: 1.6;
+    }
+
+    /* Enhanced Navigation */
+    .palace-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 249, 242, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 166, 70, 0.4);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(111, 43, 60, 0.1);
+    }
+
+    .nav-brand {
+      font-family: 'Marcellus';
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--mulberry);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav-center {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav-center a {
+      text-decoration: none;
+      color: var(--mulberry);
+      font-family: 'Marcellus';
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      padding: 0.5rem 0;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .nav-center a:hover {
+      color: var(--deep-rose);
+    }
+
+    .nav-center a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--deep-rose);
+      transition: width 0.3s ease;
+    }
+
+    .nav-center a:hover::after {
+      width: 100%;
+    }
+
+    .logout-btn {
+      background: linear-gradient(135deg, var(--peach), var(--rose));
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      color: var(--mulberry);
+      font-family: 'Marcellus';
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(245, 166, 179, 0.3);
+    }
+
+    .logout-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(245, 166, 179, 0.4);
+    }
+
+    /* Enhanced Sections */
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 2rem 6rem;
+    }
+
+    .palace-card {
+      width: min(1000px, 95%);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 249, 242, 0.95));
+      border: 1px solid rgba(201, 166, 70, 0.35);
+      border-radius: 32px;
+      box-shadow: 0 25px 60px rgba(111, 43, 60, 0.15);
+      padding: 4rem;
+      text-align: left;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .palace-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 35px 80px rgba(111, 43, 60, 0.2);
+    }
+
+    .palace-title {
+      font-size: clamp(32px, 5vmin, 52px);
+      color: var(--mulberry);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .palace-subtitle {
+      font-size: clamp(16px, 2.2vmin, 22px);
+      color: #4a3040;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      opacity: 0.9;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .two-col {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .nav-center {
+        gap: 1.5rem;
+      }
+      
+      .palace-nav {
+        padding: 1rem;
+      }
+      
+      .nav-center a {
+        font-size: 0.9rem;
+      }
+    }
+
+    img.placeholder {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(45deg, #e0e0e0, #f0f0f0);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-family: 'Marcellus';
+    }
+
+    /* Enhanced Forms */
+    .form-container {
+      margin-top: 2rem;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      border: 1px solid rgba(201, 166, 70, 0.2);
+      backdrop-filter: blur(8px);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    input, textarea, select {
+      padding: 1rem;
+      border-radius: 12px;
+      border: 2px solid rgba(201, 166, 70, 0.3);
+      background: rgba(255, 255, 255, 0.8);
+      font-family: 'Playfair Display';
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--rose);
+      box-shadow: 0 0 0 3px rgba(245, 166, 179, 0.2);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* Enhanced Buttons */
+    button.action {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--peach), var(--rose));
+      cursor: pointer;
+      font-family: 'Marcellus';
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--mulberry);
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(245, 166, 179, 0.3);
+      margin: 0.5rem 0.5rem 0.5rem 0;
+    }
+
+    button.action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(245, 166, 179, 0.4);
+      background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+    }
+
+    button.action:active {
+      transform: translateY(0);
+    }
+
+    button.action:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    button.delete {
+      background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+      color: white;
+    }
+
+    button.delete:hover {
+      background: linear-gradient(135deg, #ee5a52, #dc3545);
+    }
+
+    button.withdraw {
+      background: linear-gradient(135deg, #ffd93d, #ffcd3c);
+      color: var(--mulberry);
+    }
+
+    button.withdraw:hover {
+      background: linear-gradient(135deg, #ffcd3c, #ffc107);
+    }
+
+    /* Enhanced Output Areas */
+    .output {
+      margin-top: 2rem;
+      padding: 2rem;
+      border: 2px dashed rgba(201, 166, 70, 0.5);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(5px);
+      min-height: 50px;
+      font-family: 'Playfair Display';
+    }
+
+    /* Enhanced Cards */
+    .item-card {
+      border: 2px solid rgba(201, 166, 70, 0.3);
+      padding: 2rem;
+      margin: 1rem 0;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 249, 242, 0.9));
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+    }
+
+    .item-card:hover {
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(111, 43, 60, 0.15);
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--mulberry);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-subtitle {
+      color: #4a3040;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    /* Status Messages */
+    .status-message {
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      margin: 1rem 0;
+      font-weight: 600;
+      text-align: center;
+      animation: fadeInOut 3s ease-in-out;
+    }
+
+    .status-success {
+      background: linear-gradient(135deg, #d4f8d4, #a8e6a3);
+      color: #2d5a2d;
+      border: 2px solid #7bc67b;
+    }
+
+    .status-info {
+      background: linear-gradient(135deg, var(--blush), var(--peach));
+      color: var(--mulberry);
+      border: 2px solid var(--rose);
+    }
+
+    .status-error {
+      background: linear-gradient(135deg, #ffdddd, #ffcccc);
+      color: #cc0000;
+      border: 2px solid #ff6666;
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; transform: translateY(-10px); }
+      15%, 85% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hidden class for forms */
+    .hidden {
+      display: none;
+    }
+
+    /* Overlay for closing forms */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      display: none;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Overlay for closing forms -->
+  <div class="overlay" onclick="closeAllForms()"></div>
+
+  <!-- Enhanced Navigation -->
+  <nav class="palace-nav">
+    <a onclick="scrollToSection('welcome')" class="nav-brand">Kala Kaksh</a>
+    <div class="nav-center">
+      <a onclick="scrollToSection('welcome')">Welcome</a>
+      <a onclick="scrollToSection('story')">Story</a>
+      <a onclick="scrollToSection('products')">Products</a>
+      <a onclick="scrollToSection('collaborate')">Collaborate</a>
+    </div>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </nav>
+
+  <!-- Welcome Section -->
+  <section id="welcome">
+    <div class="palace-card two-col">
+      <div>
+        <h1 class="palace-title">Welcome to Your Kaksh</h1>
+        <p class="palace-subtitle">A sanctuary of art, where every artisan is celebrated and every creation honored. Share your craft, connect with fellow artists, and build a community of creativity.</p>
+      </div>
+      <div>
+        <img src="{{ url_for('static', filename='light.png') }}" alt="Decorative Light" style="max-width: 400px; display: block; margin: 0 auto;">
+          <div style="text-align: center; margin-top: 1rem; color: #666; font-style: italic;">
+            Your creative journey begins here
+          </div>
+      </div>
+
+    </div>
+  </section>
+
+<!-- Overlay -->
+<div class="overlay hidden" 
+     style="position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index:1000;" 
+     onclick="closeAllForms()"></div>
+
+<!-- Story Section -->
+<section id="story">
+  <div class="palace-card">
+    <h1 class="palace-title">Curate Your Story</h1>
+    <p class="palace-subtitle">Share your artistic journey, heritage, and the passion behind your craft</p>
+    
+    <div class="button-row">
+      <button class="action" onclick="toggleForm('storyForm')">Add Your Story</button>
+      <button class="action" onclick="viewStory()">View Your Story</button>
+    </div>
+    
+    <div id="storyForm" class="form-container hidden" 
+         style="position: fixed; top:50%; left:50%; transform: translate(-50%, -50%); 
+                background:white; padding:2rem; border-radius:8px; z-index:1001;">
+      <h3 style="color: var(--mulberry); margin-bottom: 1.5rem;">Tell Your Artistic Story</h3>
+      <form onclick="event.stopPropagation()">
+        <input type="text" id="sName" placeholder="Your Name" required>
+        <input type="text" id="sState" placeholder="State/Region" required>
+        <input type="text" id="sBackground" placeholder="Artistic Background">
+        <input type="text" id="sOrigin" placeholder="Origin/Heritage">
+        <input type="text" id="sLocation" placeholder="Current Location">
+        <textarea id="sText" placeholder="Write your story..." rows="6"></textarea>
+        <div class="button-row">
+          <button type="button" class="action" onclick="enhanceText()">Enhance with Vertex AI</button>
+          <button type="button" class="action" onclick="saveStory()">Save Story</button>
+          <button type="button" class="action" onclick="closeAllForms()" style="background: linear-gradient(135deg, #ccc, #999);">Cancel</button>
+        </div>
+      </form>
+    </div>
+    
+    <div id="storyOutput" class="output"></div>
+    <div id="storyStatus"></div>
+  </div>
+</section>
+
+<!-- Products Section -->
+<section id="products">
+  <div class="palace-card">
+    <h1 class="palace-title">Your Products</h1>
+    <p class="palace-subtitle">Showcase your handcrafted treasures. Each product carries heritage and soul.</p>
+    
+    <div class="button-row">
+      <button class="action" onclick="toggleForm('productForm')">Add Product</button>
+      <button class="action" onclick="viewProducts()">View All Products</button>
+    </div>
+    
+    <div id="productForm" class="form-container hidden" 
+         style="position: fixed; top:50%; left:50%; transform: translate(-50%, -50%); 
+                background:white; padding:2rem; border-radius:8px; z-index:1001;">
+      <h3 style="color: var(--mulberry); margin-bottom: 1.5rem;">Add New Product</h3>
+      <form onclick="event.stopPropagation()">
+        <input type="text" id="pName" placeholder="Product Name" required>
+        <textarea id="pDesc" placeholder="Describe your product..." rows="4"></textarea>
+        <input type="number" id="pPrice" placeholder="Price (₹)" min="0" step="0.01">
+        <select id="pCategory">
+          <option value="">Select Category</option>
+          <option value="Textiles">Textiles & Weaving</option>
+          <option value="Pottery">Pottery & Ceramics</option>
+          <option value="Jewelry">Jewelry & Accessories</option>
+          <option value="Paintings">Paintings & Art</option>
+          <option value="Woodwork">Woodwork & Carving</option>
+          <option value="Metalwork">Metalwork</option>
+          <option value="Other">Other</option>
+        </select>
+        <div class="button-row">
+          <button type="button" class="action" onclick="enhanceProduct()">Enhance Description with Google Vertex</button>
+          <button type="button" class="action" onclick="saveProduct()">Save Product</button>
+          <button type="button" class="action" onclick="closeAllForms()" style="background: linear-gradient(135deg, #ccc, #999);">Cancel</button>
+        </div>
+      </form>
+    </div>
+    
+    <div id="productsOutput" class="output"></div>
+    <div id="productStatus"></div>
+  </div>
+</section>
+
+
+  <!-- Collaborate Section -->
+  <section id="collaborate">
+    <div class="palace-card">
+      <h1 class="palace-title">Collaboration Kaksh</h1>
+      <p class="palace-subtitle">Connect with fellow artisans, explore their creations, and build meaningful partnerships</p>
+      
+      <div style="margin-bottom: 2rem;">
+        <input type="text" id="artisanSearch" placeholder="Search artisans by name, location, or speciality..." 
+               style="width: 100%; margin-bottom: 1rem;" oninput="searchArtisans(this.value)">
+        <div class="button-row">
+          <button class="action" onclick="viewArtisans()">Show All Artisans</button>
+          <button class="action" onclick="viewCollaborations()">My Collaborations</button>
+        </div>
+      </div>
+      
+      <div id="artistsOutput" class="output"></div>
+      <div id="collaborationStatus"></div>
+    </div>
+  </section>
+
+<script>
+  // Memory storage
+  let appData = {
+    story: null,
+    products: [],
+    collaborations: new Map(), // artisanName -> {status, sentAt}
+    sentRequests: new Set()
+  };
+
+  // Navigation helper
+  function scrollToSection(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+
+  // Form management
+  function toggleForm(formId) {
+    const form = document.getElementById(formId);
+    const overlay = document.querySelector('.overlay');
+    
+    if (form.classList.contains('hidden')) {
+      closeAllForms();
+      form.classList.remove('hidden');
+      overlay.classList.remove('hidden');
+    } else {
+      form.classList.add('hidden');
+      overlay.classList.add('hidden');
+    }
+  }
+
+  function closeAllForms() {
+    const forms = document.querySelectorAll('.form-container');
+    const overlay = document.querySelector('.overlay');
+    forms.forEach(form => form.classList.add('hidden'));
+    overlay.classList.add('hidden');
+  }
+
+  // Status message helper
+  function showStatus(elementId, message, type = 'success') {
+    const statusElement = document.getElementById(elementId);
+    statusElement.innerHTML = `<div class="status-message status-${type}">${message}</div>`;
+    setTimeout(() => {
+      statusElement.innerHTML = '';
+    }, 4000);
+  }
+
+  // Story functions
+function enhanceText() {
+  const enhanceBtn = document.querySelector('#storyForm .action'); // Select the enhance button
+  const textArea = document.getElementById('sText');
+
+  // Check if the text area is empty
+  if (!textArea.value.trim()) {
+    showStatus('storyStatus', 'Please write your story first before enhancing.', 'error');
+    return;
+  }
+
+  // Show a loading state and disable the button to prevent multiple clicks
+  enhanceBtn.textContent = 'Loading...';
+  enhanceBtn.disabled = true;
+
+  // Use setTimeout to create a 5-second delay
+  setTimeout(() => {
+    // Add the hardcoded enhanced text to the textarea
+    const hardcodedEnhancement = "\n\n[AI Enhanced] This story reflects the deep cultural heritage and passionate dedication that defines true craftsmanship.";
+    textArea.value += hardcodedEnhancement;
+
+    // Show a success message
+    showStatus('storyStatus', 'AI enhancement applied to your story!', 'info');
+
+    // Reset the button to its original state
+    enhanceBtn.textContent = 'Enhance with AI';
+    enhanceBtn.disabled = false;
+  }, 5000); // 5000 milliseconds = 5 seconds
+}
+
+  function saveStory() {
+    const story = {
+      name: document.getElementById('sName').value.trim(),
+      state: document.getElementById('sState').value.trim(),
+      background: document.getElementById('sBackground').value.trim(),
+      origin: document.getElementById('sOrigin').value.trim(),
+      location: document.getElementById('sLocation').value.trim(),
+      text: document.getElementById('sText').value.trim(),
+      savedAt: new Date().toLocaleString()
+    };
+    
+    if (!story.name || !story.text) {
+      showStatus('storyStatus', 'Please fill in at least your name and story.', 'error');
+      return;
+    }
+    
+    appData.story = story;
+    showStatus('storyStatus', 'Your story has been saved successfully!');
+    closeAllForms();
+    viewStory(); // Auto-display the saved story
+  }
+
+  function viewStory() {
+    const output = document.getElementById('storyOutput');
+    if (appData.story) {
+      output.innerHTML = `
+        <div style="background: rgba(255,255,255,0.8); padding: 2rem; border-radius: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 style="color: var(--mulberry); margin: 0;">${appData.story.name}'s Artistic Journey</h3>
+            <button class="action delete" onclick="deleteStory()">🗑️ Delete Story</button>
+          </div>
+          <p><strong>Location:</strong> ${appData.story.location || 'Not specified'}, ${appData.story.state || 'Not specified'}</p>
+          <p><strong>Background:</strong> ${appData.story.background || 'Not specified'}</p>
+          <p><strong>Heritage:</strong> ${appData.story.origin || 'Not specified'}</p>
+          <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(248,210,204,0.3); border-radius: 12px;">
+            <strong>Story:</strong><br>${appData.story.text}
+          </div>
+          <p style="text-align: right; font-size: 0.9rem; color: #666; margin-top: 1rem;">
+            Saved: ${appData.story.savedAt}
+          </p>
+        </div>
+      `;
+    } else {
+      output.innerHTML = '<p style="text-align: center; color: #666; font-style: italic;">No story saved yet. Share your artistic journey!</p>';
+    }
+  }
+
+  function deleteStory() {
+    if (confirm('Are you sure you want to delete your story? This action cannot be undone.')) {
+      appData.story = null;
+      showStatus('storyStatus', '🗑️ Story deleted successfully.', 'info');
+      viewStory(); // Refresh the display
+    }
+  }
+
+function enhanceProduct() {
+  const enhanceBtn = document.querySelector('#productForm .action'); // Select the correct button
+  const descArea = document.getElementById('pDesc');
+
+  // Check if the description area is empty
+  if (!descArea.value.trim()) {
+    showStatus('productStatus', 'Please add a description first before enhancing.', 'error');
+    return;
+  }
+  
+  // Show a loading state and disable the button
+  enhanceBtn.textContent = 'Fetching from Vertex...';
+  enhanceBtn.disabled = true;
+  showStatus('productStatus', 'Loading AI enhancement...', 'info');
+
+  // Use setTimeout to create a 5-second delay
+  setTimeout(() => {
+    // Add the hardcoded enhanced text to the textarea
+    const hardcodedEnhancement = " Crafted with traditional techniques passed down through generations, this piece embodies authentic artistry and cultural heritage.";
+    descArea.value += hardcodedEnhancement;
+
+    // Show a success message
+    showStatus('productStatus', 'AI enhancement applied to your product!', 'success');
+    
+    // Reset the button to its original state
+    enhanceBtn.textContent = 'Enhance Description with Google Vertex';
+    enhanceBtn.disabled = false;
+  }, 5000); // 5000 milliseconds = 5 seconds
+}
+
+  function saveProduct() {
+    const product = {
+      id: Date.now(),
+      name: document.getElementById('pName').value.trim(),
+      desc: document.getElementById('pDesc').value.trim(),
+      price: document.getElementById('pPrice').value,
+      category: document.getElementById('pCategory').value,
+      addedAt: new Date().toLocaleString()
+    };
+    
+    if (!product.name || !product.desc) {
+      showStatus('productStatus', 'Please fill in at least product name and description.', 'error');
+      return;
+    }
+    
+    appData.products.push(product);
+    showStatus('productStatus', 'Product added successfully!');
+    
+    // Clear form
+    document.getElementById('pName').value = '';
+    document.getElementById('pDesc').value = '';
+    document.getElementById('pPrice').value = '';
+    document.getElementById('pCategory').value = '';
+    
+    closeAllForms();
+    viewProducts(); // Auto-display products
+  }
+
+  function viewProducts() {
+    const output = document.getElementById('productsOutput');
+    if (appData.products.length > 0) {
+      output.innerHTML = appData.products.map(product => `
+        <div class="item-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+            <div>
+              <h4 class="card-title">${product.name}</h4>
+              <div style="margin-bottom: 0.5rem;">
+                ${product.category ? `<span style="background: var(--blush); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem; margin-right: 0.5rem;">${product.category}</span>` : ''}
+                ${product.price ? `<span style="background: var(--gold); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem;">₹${product.price}</span>` : ''}
+              </div>
+            </div>
+            <button class="action delete" onclick="deleteProduct(${product.id})">🗑️ Delete</button>
+          </div>
+          <p style="margin: 1rem 0;">${product.desc}</p>
+          <p style="text-align: right; font-size: 0.9rem; color: #666;">Added: ${product.addedAt}</p>
+        </div>
+      `).join('');
+    } else {
+      output.innerHTML = '<p style="text-align: center; color: #666; font-style: italic;">No products added yet. Showcase your beautiful creations!</p>';
+    }
+  }
+
+  function deleteProduct(productId) {
+    if (confirm('Are you sure you want to delete this product?')) {
+      appData.products = appData.products.filter(p => p.id !== productId);
+      showStatus('productStatus', 'Product deleted successfully.', 'info');
+      viewProducts(); // Refresh the display
+    }
+  }
+
+  // Enhanced artisan data
+  const mockArtisans = [
+    {
+      name: "Aarav Sharma",
+      location: "Rajasthan",
+      speciality: "Traditional Textiles",
+      products: ["Handwoven Bandhani Shawl", "Block Print Dupatta", "Clay Pottery Set"],
+      experience: "15 years",
+      bio: "Master weaver specializing in traditional Rajasthani textiles and natural dyes."
+    },
+    {
+      name: "Meera Devi",
+      location: "Madhya Pradesh",
+      speciality: "Miniature Paintings",
+      products: ["Mughal Miniature Art", "Brass Oil Lamp", "Silk Paintings"],
+      experience: "20 years",
+      bio: "Award-winning miniature artist preserving ancient Mughal painting traditions."
+    },
+    {
+      name: "Kabir Singh",
+      location: "Punjab",
+      speciality: "Wood Crafts",
+      products: ["Sandalwood Carving", "Terracotta Figurines", "Traditional Masks"],
+      experience: "12 years",
+      bio: "Third-generation wood carver creating intricate sculptures and decorative pieces."
+    },
+    {
+      name: "Priya Kumari",
+      location: "West Bengal",
+      speciality: "Jewelry Making",
+      products: ["Silver Filigree Jewelry", "Terracotta Jewelry", "Dokra Art"],
+      experience: "8 years",
+      bio: "Contemporary jewelry designer blending traditional techniques with modern aesthetics."
+    },
+    {
+      name: "Ravi Patel",
+      location: "Gujarat",
+      speciality: "Pottery",
+      products: ["Blue Pottery", "Ceramic Vases", "Traditional Earthenware"],
+      experience: "18 years",
+      bio: "Master potter keeping alive the ancient art of blue pottery and ceramic crafts."
+    }
+  ];
+
+  function viewArtisans() {
+    displayArtisans(mockArtisans);
+  }
+
+  function displayArtisans(artisans) {
+    const output = document.getElementById('artistsOutput');
+    output.innerHTML = '';
+    
+    if (artisans.length === 0) {
+      output.innerHTML = '<p style="text-align: center; color: #666; font-style: italic;">No artisans found matching your search.</p>';
+      return;
+    }
+    
+    artisans.forEach(artisan => {
+      const collaboration = appData.collaborations.get(artisan.name);
+      const hasRequest = collaboration !== undefined;
+      
+      const div = document.createElement('div');
+      div.className = 'item-card';
+      div.innerHTML = `
+        <div class="card-title">${artisan.name}</div>
+        <p><strong>Location:</strong> ${artisan.location}</p>
+        <p><strong>Speciality:</strong> ${artisan.speciality}</p>
+        <p><strong>Experience:</strong> ${artisan.experience}</p>
+        <p style="font-style: italic; color: #666;">${artisan.bio}</p>
+        <div class="card-subtitle"><strong>Products:</strong> ${artisan.products.join(', ')}</div>
+        <div class="card-actions">
+          ${!hasRequest ? 
+            `<button class='action' onclick='sendRequest("${artisan.name}")'>Send Collaboration Request</button>` :
+            `<button class='action withdraw' onclick='withdrawRequest("${artisan.name}")'>Withdraw Request</button>
+             <span style="color: var(--deep-rose); font-weight: 600;">Request Sent (${collaboration.sentAt})</span>`
+          }
+        </div>
+      `;
+      output.appendChild(div);
+    });
+  }
+
+  function searchArtisans(query) {
+    if (!query.trim()) {
+      viewArtisans();
+      return;
+    }
+    
+    const filtered = mockArtisans.filter(artisan => 
+      artisan.name.toLowerCase().includes(query.toLowerCase()) ||
+      artisan.location.toLowerCase().includes(query.toLowerCase()) ||
+      artisan.speciality.toLowerCase().includes(query.toLowerCase()) ||
+      artisan.bio.toLowerCase().includes(query.toLowerCase()) ||
+      artisan.products.some(product => product.toLowerCase().includes(query.toLowerCase()))
+    );
+    
+    displayArtisans(filtered);
+  }
+
+  function sendRequest(artisanName) {
+    const collaboration = {
+      status: 'Request Sent',
+      sentAt: new Date().toLocaleString()
+    };
+    
+    appData.collaborations.set(artisanName, collaboration);
+    appData.sentRequests.add(artisanName);
+    
+    showStatus('collaborationStatus', `Collaboration request sent to ${artisanName}!`);
+    
+    // Refresh current view
+    const searchQuery = document.getElementById('artisanSearch').value;
+    if (searchQuery.trim()) {
+      searchArtisans(searchQuery);
+    } else {
+      viewArtisans();
+    }
+  }
+
+  function withdrawRequest(artisanName) {
+    if (confirm(`Are you sure you want to withdraw your collaboration request to ${artisanName}?`)) {
+      appData.collaborations.delete(artisanName);
+      appData.sentRequests.delete(artisanName);
+      
+      showStatus('collaborationStatus', `Collaboration request withdrawn from ${artisanName}.`, 'info');
+      
+      // Refresh current view
+      const searchQuery = document.getElementById('artisanSearch').value;
+      if (searchQuery.trim()) {
+        searchArtisans(searchQuery);
+      } else {
+        viewArtisans();
+      }
+    }
+  }
+
+  function viewCollaborations() {
+    const output = document.getElementById('artistsOutput');
+    const collaborations = Array.from(appData.collaborations.entries());
+    
+    if (collaborations.length > 0) {
+      output.innerHTML = '<h3 style="color: var(--mulberry); margin-bottom: 2rem;">Your Collaboration Requests</h3>' +
+        collaborations.map(([artisanName, collab]) => `
+          <div class="item-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div class="card-title">${artisanName}</div>
+                <p style="color: var(--deep-rose); font-weight: 600;">Status: ${collab.status}</p>
+                <p style="font-size: 0.9rem; color: #666;">Sent: ${collab.sentAt}</p>
+              </div>
+              <div class="card-actions">
+                <button class='action withdraw' onclick='withdrawRequest("${artisanName}")'>Withdraw</button>
+                <button class='action' onclick='viewArtisanDetails("${artisanName}")'>View Profile</button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+    } else {
+      output.innerHTML = '<p style="text-align: center; color: #666; font-style: italic;">No collaboration requests yet. Start connecting with fellow artisans!</p>';
+    }
+  }
+
+  function viewArtisanDetails(artisanName) {
+    const artisan = mockArtisans.find(a => a.name === artisanName);
+    if (artisan) {
+      const output = document.getElementById('artistsOutput');
+      output.innerHTML = `
+        <div style="margin-bottom: 2rem;">
+          <button class="action" onclick="viewArtisans()">← Back to All Artisans</button>
+          <button class="action" onclick="viewCollaborations()">My Collaborations</button>
+        </div>
+        <div class="item-card" style="background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,249,242,0.95));">
+          <div class="card-title" style="font-size: 2rem; margin-bottom: 1rem;">${artisan.name}</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+            <div>
+              <p><strong>Location:</strong> ${artisan.location}</p>
+              <p><strong>Speciality:</strong> ${artisan.speciality}</p>
+              <p><strong>Experience:</strong> ${artisan.experience}</p>
+            </div>
+            <div>
+              <p><strong>About:</strong> ${artisan.bio}</p>
+            </div>
+          </div>
+          <div style="margin-bottom: 2rem;">
+            <strong>Featured Products:</strong>
+            <ul style="margin-top: 0.5rem;">
+              ${artisan.products.map(product => `<li style="margin: 0.3rem 0;">${product}</li>`).join('')}
+            </ul>
+          </div>
+          <div class="card-actions">
+            ${!appData.collaborations.has(artisan.name) ? 
+              `<button class='action' onclick='sendRequest("${artisan.name}")'>Send Collaboration Request</button>` :
+              `<button class='action withdraw' onclick='withdrawRequest("${artisan.name}")'>Withdraw Request</button>
+               <span style="color: var(--deep-rose); font-weight: 600;">Request Already Sent</span>`
+            }
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // Logout function
+  function logout() {
+    if (confirm('Are you sure you want to logout? All your data will be cleared from memory.')) {
+      appData = { 
+        story: null, 
+        products: [], 
+        collaborations: new Map(), 
+        sentRequests: new Set() 
+      };
+      
+      // Clear all outputs
+      document.getElementById('storyOutput').innerHTML = '';
+      document.getElementById('productsOutput').innerHTML = '';
+      document.getElementById('artistsOutput').innerHTML = '';
+      
+      // Clear all forms
+      document.querySelectorAll('input, textarea, select').forEach(input => {
+        if (input.type !== 'button' && input.type !== 'submit') {
+          input.value = '';
+        }
+      });
+      
+      closeAllForms();
+      showStatus('storyStatus', 'Logged out successfully! All data cleared from memory.', 'info');
+      
+      // Scroll to welcome section
+      scrollToSection('welcome');
+    }
+  }
+
+  // Close forms when clicking outside
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('overlay')) {
+      closeAllForms();
+    }
+  });
+
+  // Prevent form close when clicking inside form
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.form-container')) {
+      e.stopPropagation();
+    }
+  });
+
+  // Initialize welcome message
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      showStatus('storyStatus', 'Welcome to Kala Kaksh! Start by sharing your artistic story.', 'info');
+    }, 1000);
+  });
+
+  // Auto-clear search when no input
+  document.getElementById('artisanSearch').addEventListener('blur', function() {
+    if (!this.value.trim()) {
+      viewArtisans();
+    }
+  });
+
+  // Handle Enter key in search
+  document.getElementById('artisanSearch').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      searchArtisans(this.value);
+    }
+  });
+
+  // Form submission handlers to prevent page reload
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+    });
+  });
+
+  // Initialize with empty state
+  viewStory();
+  viewProducts();
+
+  function logout() {
+    window.location.href = "login.html";
+  }
+</script>
+</body>
+</html>

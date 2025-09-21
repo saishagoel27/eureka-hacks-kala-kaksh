@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generating Room Design...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+    <style>
+        body {
+            /* Background Gradient matching your image */
+            background: linear-gradient(135deg, #f0c4c4, #e8a0a0); /* Adjusted colors to match image */
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure it takes full viewport height */
+            margin: 0; /* Remove default body margin */
+            padding: 20px; /* Some padding around the edges */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+            
+            text-align: center;
+            font-family: 'Marcellus', serif; /* Use the elegant font */
+            color: #fff; /* White text for contrast on the dark background */
+        }
+        
+        /* Styling for the main title */
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem); /* Responsive font size */
+            font-weight: 400; /* Lighter weight for elegance */
+            color: #fff; /* White color */
+            margin-bottom: 1rem; /* Space below the title */
+            letter-spacing: 2px; /* Slight letter spacing */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Subtle text shadow */
+        }
+        
+        /* Styling for the main subtitle/description */
+        .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem); /* Responsive font size */
+            font-weight: 300; /* Lighter weight */
+            color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+            margin-bottom: 3rem; /* More space before the loading messages */
+        }
+        
+        /* Styling for the loading messages */
+        .loading-message {
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 0.8rem;
+            display: flex; /* Use flex to align icon and text */
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Space between icon and text */
+        }
+
+        .loading-message span {
+            /* Style for the 'X' icon or other icons */
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: #ff6b6b; /* Red color for the 'X' */
+        }
+
+        .please-wait {
+            font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <h1>Kala Kaksh Presents</h1>
+    
+    <p class="subtitle">AI-crafted rooms: where tradition meets technology, shaping the majestic future of artisan shopping </p>
+
+    <div class="loading-message">
+        Generating your custom room image using Google Imagen API... <span></span>
+    </div>
+    
+    <div class="please-wait">
+        Please wait while Google processes your request.
+    </div>
+    
+    <script>
+        // Redirect after a 5-second delay (5000 milliseconds)
+        setTimeout(function() {
+            window.location.href = 'product_detail.html'; // This will be the page showing the final design
+        }, 5000);
+    </script>
+</body>
+</html>

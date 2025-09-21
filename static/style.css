@@ -1,0 +1,221 @@
+:root {
+  --rose: #f5a6b3;
+  --peach: #f6c1a7;
+  --blush: #f8d2cc;
+  --deep-rose: #b44b63;
+  --mulberry: #6f2b3c;
+  --gold: #c9a646;
+  --antique: #ead6b7;
+  --ivory: #fff9f2;
+  --forest: #1f5137;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background:
+    radial-gradient(1200px 800px at 20% 10%, rgba(255, 204, 214, 0.45), transparent 60%),
+    radial-gradient(800px 600px at 80% 0%, rgba(255, 198, 170, 0.45), transparent 60%),
+    linear-gradient(180deg, #fff7f1 0%, #fdebe2 60%, #fde5ea 100%);
+  color: #3a2a2a;
+  font-family: 'Playfair Display', 'Marcellus', Georgia, 'Times New Roman', serif;
+}
+
+.palace-root { 
+  position: relative; 
+  min-height: 100vh; 
+  overflow: hidden; 
+}
+
+.palace-backdrop {
+  position: absolute; 
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 5% 10%, rgba(201, 166, 70, 0.25) 0 20%, transparent 22%),
+    radial-gradient(circle at 95% 15%, rgba(180, 75, 99, 0.18) 0 18%, transparent 20%),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><defs><pattern id="p" width="80" height="80" patternUnits="userSpaceOnUse" patternTransform="rotate(15)"><path d="M40 5c5 12 10 22 10 35s-5 23-10 35c-5-12-10-22-10-35s5-23 10-35z" fill="%23f5a6b3" opacity="0.12"/><circle cx="40" cy="40" r="6" fill="%23c9a646" opacity="0.15"/></pattern></defs><rect width="100%" height="100%" fill="url(%23p)"/></svg>');
+  filter: contrast(105%) saturate(110%);
+}
+
+.palace-frame { 
+  position: relative; 
+  z-index: 1; 
+  min-height: 100vh; 
+  display: grid; 
+  place-items: center; 
+  padding: 6vmin 4vmin; 
+}
+
+.palace-arch { 
+  position: absolute; 
+  inset: 3vmin; 
+  pointer-events: none; 
+}
+
+.palace-arch-border { 
+  position: absolute; 
+  inset: 0; 
+  border: 6px double var(--gold); 
+  border-radius: 28px; 
+  box-shadow: 
+    0 0 0 2px rgba(255, 255, 255, 0.7) inset, 
+    0 10px 30px rgba(111, 43, 60, 0.15); 
+}
+
+.palace-arch-cut { 
+  position: absolute; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  top: -2vmin; 
+  width: min(72vmin, 90%); 
+  height: 14vmin; 
+  background: radial-gradient(closest-side, transparent 62%, rgba(201, 166, 70, 0.2) 63%, transparent 66%) no-repeat center/100% 100%; 
+  mask: radial-gradient(closest-side, transparent 60%, black 61%); 
+}
+
+.palace-card { 
+  position: relative; 
+  width: min(720px, 92vw); 
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,249,242,0.85)); 
+  border-radius: 28px; 
+  border: 1px solid rgba(201,166,70,0.35); 
+  box-shadow: 0 30px 60px rgba(111,43,60,0.18); 
+  backdrop-filter: blur(6px); 
+  padding: 6vmin 6vmin 7vmin; 
+}
+
+.palace-title { 
+  margin: 0 0 1rem 0; 
+  text-align: center; 
+  letter-spacing: 0.02em; 
+  color: var(--mulberry); 
+  font-family: 'Marcellus', 'Playfair Display', serif; 
+  font-weight: 600; 
+}
+
+.palace-title .title-line.one { 
+  display: block; 
+  font-size: clamp(26px, 5.2vmin, 46px); 
+}
+
+.palace-title .title-line.two { 
+  display: block; 
+  font-size: clamp(28px, 6vmin, 52px); 
+  color: var(--deep-rose); 
+}
+
+.palace-subtitle { 
+  margin: 0 auto 2.4rem; 
+  text-align: center; 
+  color: #4a3040; 
+  font-size: clamp(14px, 2.2vmin, 18px); 
+  font-family: 'Playfair Display', serif; 
+  opacity: 0.9; 
+}
+
+.palace-options { 
+  display: grid; 
+  grid-template-columns: repeat(2, minmax(180px, 1fr)); 
+  gap: 1.25rem; 
+  width: min(560px, 100%); 
+  margin: 0 auto 2.5rem; 
+}
+
+.palace-btn { 
+  appearance: none; 
+  border: 0; 
+  cursor: pointer; 
+  padding: 1rem 1.25rem; 
+  border-radius: 16px; 
+  font-size: clamp(15px, 2.2vmin, 18px); 
+  font-family: 'Marcellus', 'Playfair Display', serif; 
+  transition: transform 180ms ease, box-shadow 180ms ease, background 240ms ease; 
+  box-shadow: 0 8px 18px rgba(111,43,60,0.15); 
+  color: #3a2a2a; 
+}
+
+.palace-btn.artisan { 
+  background: linear-gradient(180deg, var(--blush), var(--peach)); 
+  border: 1px solid rgba(201,166,70,0.5); 
+}
+
+.palace-btn.buyer { 
+  background: linear-gradient(180deg, #ffe9f1, #fde5d8); 
+  border: 1px solid rgba(201,166,70,0.5); 
+}
+
+.palace-btn:hover { 
+  transform: translateY(-2px); 
+  box-shadow: 0 14px 28px rgba(111,43,60,0.22); 
+}
+
+.palace-btn:active { 
+  transform: translateY(0); 
+  box-shadow: 0 6px 12px rgba(111,43,60,0.2); 
+}
+
+.palace-motifs { 
+  position: absolute; 
+  inset: 0; 
+  pointer-events: none; 
+}
+
+.motif { 
+  position: absolute; 
+  opacity: 0.28; 
+  filter: saturate(110%); 
+}
+
+.motif.peacock { 
+  width: 120px; 
+  height: 120px; 
+  right: -6px; 
+  top: -18px; 
+  background-image: 
+    radial-gradient(circle at 60% 40%, var(--forest) 0 6px, transparent 7px), 
+    radial-gradient(circle at 40% 60%, var(--deep-rose) 0 5px, transparent 6px), 
+    conic-gradient(from 0deg, var(--rose), var(--peach), var(--rose)); 
+  border-radius: 50%; 
+  mask: radial-gradient(circle at 50% 50%, black 55%, transparent 56%); 
+}
+
+.motif.parrot { 
+  width: 90px; 
+  height: 90px; 
+  left: -10px; 
+  bottom: 24px; 
+  background: 
+    radial-gradient(circle at 30% 40%, #2f6b4a 0 8px, transparent 9px), 
+    radial-gradient(circle at 70% 60%, #b44b63 0 6px, transparent 7px), 
+    linear-gradient(135deg, #bdeccf, #f6c1a7); 
+  border-radius: 50%; 
+  mask: radial-gradient(circle at 50% 50%, black 60%, transparent 61%); 
+}
+
+.motif.pomegranate { 
+  width: 80px; 
+  height: 80px; 
+  left: 50%; 
+  bottom: -16px; 
+  transform: translateX(-50%); 
+  background: radial-gradient(circle at 50% 50%, #b44b63 0 40%, #f5a6b3 41% 70%, transparent 71%); 
+  border-radius: 50%; 
+}
+
+.motif.mandala { 
+  width: 160px; 
+  height: 160px; 
+  right: 14px; 
+  bottom: -32px; 
+  background-image: repeating-conic-gradient(from 0deg, rgba(201,166,70,0.24) 0 10deg, transparent 10deg 20deg); 
+  border-radius: 50%; 
+}
+
+@media (max-width: 520px) { 
+  .palace-options { 
+    grid-template-columns: 1fr; 
+  } 
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Login - Kala Kaksh" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+    <title>Login - Kala Kaksh</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </head>
+  <body>
+    <div class="palace-root">
+      <div class="palace-backdrop"></div>
+      <main class="palace-frame">
+        <div class="palace-arch">
+          <div class="palace-arch-cut"></div>
+          <div class="palace-arch-border"></div>
+        </div>
+
+        <section class="palace-card">
+          <h1 class="palace-title">
+            <span class="title-line one">Kala</span>
+            <span class="title-line two">Kaksh</span>
+          </h1>
+          <p class="palace-subtitle">Enter the garden of craft and story</p>
+
+<div class="palace-options">
+  <button id="register-artisan" class="palace-btn artisan">Register as Artisan</button>
+  <button id="register-buyer" class="palace-btn buyer">Register as Buyer</button>
+</div>
+
+<div id="g_id_onload"
+     data-client_id="732579011063-omj79r7obf7f3djjv0c6seo87u8ee38t.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-callback="handleCredentialResponse"
+     data-itp_support="true">
+</div>
+<div class="g_id_signin"
+     data-type="standard"
+     data-size="large"
+     data-theme="outline"
+     data-text="sign_in_with"
+     data-shape="pill"
+     data-logo_alignment="left">
+</div>
+          
+
+          <div class="palace-motifs" aria-hidden="true">
+            <div class="motif peacock"></div>
+            <div class="motif parrot"></div>
+            <div class="motif pomegranate"></div>
+            <div class="motif mandala"></div>
+          </div>
+        </section>
+      </main></div>
+
+    <script type="module" src="{{ url_for('static', filename='script.js') }}"></script>
+
+  </body>
+</html>

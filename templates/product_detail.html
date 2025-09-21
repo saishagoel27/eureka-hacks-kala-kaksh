@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pots Gallery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --mulberry: #7b3f61;
+    --deep-rose: #b23a48;
+  }
+
+  /* Gallery Page */
+  .gallery-page {
+    min-height: 100vh;
+    background: url('{{ url_for('static', filename='rooms.png') }}') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+  }
+
+  .gallery-content {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-header {
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+  }
+
+  .gallery-title {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  }
+
+  .gallery-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+  }
+
+  /* Vertical list of items centered */
+  .gallery-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center; /* center horizontally */
+    width: 100%;
+  }
+
+  .gallery-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center image */
+    gap: 1rem;
+    width: 100%;
+    max-width: 200px; /* small image width */
+  }
+
+  .gallery-item-image {
+    border: 2px solid rgba(255,255,255,0.8);
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .gallery-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery-item-price {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 5px;
+  }
+
+  /* Full-size card (appears beside image on hover) */
+  .gallery-item-card {
+    position: absolute;
+    left: 220px; /* beside the small image */
+    top: 0;
+    width: 400px; /* same size as your first code */
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    display: none;
+    z-index: 10;
+    transition: all 0.3s ease;
+  }
+
+  .gallery-item-card .gallery-item-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--mulberry);
+    margin-bottom: 0.5rem;
+  }
+
+  .gallery-item-card .gallery-item-price-card {
+    font-size: 1.1rem;
+    color: var(--deep-rose);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .gallery-item-card .gallery-item-desc {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    color: #444;
+  }
+
+  .gallery-item-card .gallery-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.5rem;
+  }
+
+  .gallery-item-card .gallery-actions button {
+    background: var(--mulberry);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+  }
+
+  .gallery-item-card .gallery-actions button:hover {
+    background: var(--deep-rose);
+  }
+
+  /* Hover effect */
+  .gallery-item:hover .gallery-item-card {
+    display: block;
+  }
+
+  .back-btn {
+    position: fixed;
+    top: 100px;
+    left: 2rem;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  .back-btn:hover {
+    background: white;
+    transform: scale(1.1);
+  }
+</style>
+</head>
+<body>
+<div id="potsGallery" class="gallery-page">
+  <button class="back-btn" onclick="closeGallery('potsGallery')">←</button>
+  <div class="gallery-overlay"></div>
+  <div class="gallery-content">
+    <div class="gallery-header">
+      <h1 class="gallery-title">Mughal Artifacts</h1>
+      <p class="gallery-subtitle">Terracotta, blue pottery, etc.</p>
+    </div>
+
+    <div class="gallery-list">
+      <!-- Repeat 6 times using img1.jpg -->
+      <div class="gallery-item">
+        <div class="gallery-item-image">
+          <img src="{{ url_for('static', filename='img1.jpg') }}" alt="Pot Item">
+          <div class="gallery-item-price">₹1200</div>
+        </div>
+        <div class="gallery-item-card">
+          <div class="gallery-item-name">Blue Pot</div>
+          <div class="gallery-item-price-card">₹1200</div>
+          <p class="gallery-item-desc">Hand-painted traditional ceramic pot with fine details.</p>
+          <div class="gallery-actions">
+            <button>Add to Cart</button>
+            <button>Wishlist</button>
+            <button>Artisan</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-item-image">
+          <img src="{{ url_for('static', filename='img2.jpg') }}" alt="Pot Item">
+          <div class="gallery-item-price">₹1200</div>
+        </div>
+        <div class="gallery-item-card">
+          <div class="gallery-item-name">Mughal Rug</div>
+          <div class="gallery-item-price-card">₹1200</div>
+          <p class="gallery-item-desc">Hand-painted traditional Mughal rug with fine details.</p>
+          <div class="gallery-actions">
+            <button>Add to Cart</button>
+            <button>Wishlist</button>
+            <button>Artisan</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-item-image">
+          <img src="{{ url_for('static', filename='img3.jpg') }}" alt="Pot Item">
+          <div class="gallery-item-price">₹1200</div>
+        </div>
+        <div class="gallery-item-card">
+          <div class="gallery-item-name">Akbar Painting</div>
+          <div class="gallery-item-price-card">₹1200</div>
+          <p class="gallery-item-desc">Hand-painted traditional Akbar Painting with fine details.</p>
+          <div class="gallery-actions">
+            <button>Add to Cart</button>
+            <button>Wishlist</button>
+            <button>Artisan</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-item-image">
+          <img src="{{ url_for('static', filename='img4.jpg') }}" alt="Mughlai Cushion">
+          <div class="gallery-item-price">₹1200</div>
+        </div>
+        <div class="gallery-item-card">
+          <div class="gallery-item-name">Mughlai Cushion</div>
+          <div class="gallery-item-price-card">₹1200</div>
+          <p class="gallery-item-desc">Hand-painted traditional Mughlai Cushion with fine details.</p>
+          <div class="gallery-actions">
+            <button>Add to Cart</button>
+            <button>Wishlist</button>
+            <button>Artisan</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-item-image">
+          <img src="{{ url_for('static', filename='img5.jpg') }}" alt="Mumtaz Poster">
+          <div class="gallery-item-price">₹1200</div>
+        </div>
+        <div class="gallery-item-card">
+          <div class="gallery-item-name">Mumtaz Poster</div>
+          <div class="gallery-item-price-card">₹1200</div>
+          <p class="gallery-item-desc">Hand-printed traditional Mumtaz Poster with fine details.</p>
+          <div class="gallery-actions">
+            <button>Add to Cart</button>
+            <button>Wishlist</button>
+            <button>Artisan</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-item-image">
+          <img src="{{ url_for('static', filename='img6.jpg') }}" alt="Cushion Cover">
+          <div class="gallery-item-price">₹1200</div>
+        </div>
+        <div class="gallery-item-card">
+          <div class="gallery-item-name">Cushion Cover</div>
+          <div class="gallery-item-price-card">₹1200</div>
+          <p class="gallery-item-desc">Hand-painted traditional Cushion Cover with fine details.</p>
+          <div class="gallery-actions">
+            <button>Add to Cart</button>
+            <button>Wishlist</button>
+            <button>Artisan</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+function closeGallery(id) {
+  document.getElementById(id).classList.add("hidden");
+}
+</script>
+</body>
+</html>
+

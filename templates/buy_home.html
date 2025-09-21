@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Buyer - Kala Kaksh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rose: #f5a6b3; --peach: #f6c1a7; --blush: #f8d2cc;
+      --deep-rose: #b44b63; --mulberry: #6f2b3c; --gold: #c9a646;
+      --ivory: #fff9f2; --forest: #1f5137;
+    }
+    
+    * { box-sizing: border-box; }
+    
+    html, body { 
+      margin: 0; 
+      height: 100%; 
+      scroll-behavior: smooth; 
+      font-family: 'Playfair Display', 'Marcellus', serif;
+    }
+    
+    body {
+      background:
+        radial-gradient(1200px 800px at 20% 10%, rgba(255,204,214,0.45), transparent 60%),
+        radial-gradient(800px 600px at 80% 0%, rgba(255,198,170,0.45), transparent 60%),
+        linear-gradient(180deg, #fff7f1 0%, #fdebe2 60%, #fde5ea 100%);
+      color: #3a2a2a;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    .palace-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 249, 242, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 166, 70, 0.4);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(111, 43, 60, 0.1);
+    }
+
+    .nav-brand {
+      font-family: 'Marcellus';
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--mulberry);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav-center {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav-center a {
+      text-decoration: none;
+      color: var(--mulberry);
+      font-family: 'Marcellus';
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      padding: 0.5rem 0;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .nav-center a:hover {
+      color: var(--deep-rose);
+    }
+
+    .nav-center a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--deep-rose);
+      transition: width 0.3s ease;
+    }
+
+    .nav-center a:hover::after {
+      width: 100%;
+    }
+
+    .cart-btn {
+      background: linear-gradient(135deg, var(--peach), var(--rose));
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      color: var(--mulberry);
+      font-family: 'Marcellus';
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(245, 166, 179, 0.3);
+      position: relative;
+    }
+
+    .cart-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(245, 166, 179, 0.4);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--deep-rose);
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Sections */
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 2rem 6rem;
+    }
+
+    .palace-card {
+      width: min(1000px, 95%);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 249, 242, 0.95));
+      border: 1px solid rgba(201, 166, 70, 0.35);
+      border-radius: 32px;
+      box-shadow: 0 25px 60px rgba(111, 43, 60, 0.15);
+      padding: 4rem;
+      text-align: left;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .palace-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 35px 80px rgba(111, 43, 60, 0.2);
+    }
+
+    .palace-title {
+      font-size: clamp(32px, 5vmin, 52px);
+      color: var(--mulberry);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .palace-subtitle {
+      font-size: clamp(16px, 2.2vmin, 22px);
+      color: #4a3040;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      opacity: 0.9;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .two-col {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .nav-center {
+        gap: 1.5rem;
+      }
+      
+      .palace-nav {
+        padding: 1rem;
+      }
+    }
+
+    img.placeholder {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(45deg, #e0e0e0, #f0f0f0);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-family: 'Marcellus';
+      text-align: center;
+      padding: 1rem;
+    }
+
+    /* Forms */
+    .form-container {
+      position: relative;
+      z-index: 1001;
+      margin-top: 2rem;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      border: 1px solid rgba(201, 166, 70, 0.2);
+      backdrop-filter: blur(8px);
+      pointer-events: auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    input, textarea, select {
+      padding: 1rem;
+      border-radius: 12px;
+      border: 2px solid rgba(201, 166, 70, 0.3);
+      background: rgba(255, 255, 255, 0.8);
+      font-family: 'Playfair Display';
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--rose);
+      box-shadow: 0 0 0 3px rgba(245, 166, 179, 0.2);
+    }
+
+    /* Buttons */
+    button.action {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--peach), var(--rose));
+      cursor: pointer;
+      font-family: 'Marcellus';
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--mulberry);
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(245, 166, 179, 0.3);
+      margin: 0.5rem 0.5rem 0.5rem 0;
+    }
+
+    button.action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(245, 166, 179, 0.4);
+      background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .product-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 249, 242, 0.9));
+      border-radius: 20px;
+      padding: 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(201, 166, 70, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(111, 43, 60, 0.2);
+      border-color: var(--rose);
+    }
+
+    .product-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--mulberry);
+      margin-bottom: 0.5rem;
+    }
+
+    .product-desc {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* Output areas */
+    .output {
+      margin-top: 2rem;
+      padding: 2rem;
+      border: 2px dashed rgba(201, 166, 70, 0.5);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(5px);
+      min-height: 50px;
+      font-family: 'Playfair Display';
+    }
+
+    /* Item cards */
+    .item-card {
+      border: 2px solid rgba(201, 166, 70, 0.3);
+      padding: 2rem;
+      margin: 1rem 0;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 249, 242, 0.9));
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+    }
+
+    .item-card:hover {
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(111, 43, 60, 0.15);
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--mulberry);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Status messages */
+    .status-message {
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      margin: 1rem 0;
+      font-weight: 600;
+      text-align: center;
+      animation: fadeInOut 3s ease-in-out;
+    }
+
+    .status-success {
+      background: linear-gradient(135deg, #d4f8d4, #a8e6a3);
+      color: #2d5a2d;
+      border: 2px solid #7bc67b;
+    }
+
+    .status-info {
+      background: linear-gradient(135deg, var(--blush), var(--peach));
+      color: var(--mulberry);
+      border: 2px solid var(--rose);
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; transform: translateY(-10px); }
+      15%, 85% { opacity: 1; transform: translateY(0); }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      display: none;
+      pointer-events: auto;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+
+    /* Search Kaksh Styles */
+    .search-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .search-bar {
+      width: 100%;
+      padding: 1.5rem;
+      font-size: 1.2rem;
+      border-radius: 20px;
+      border: 3px solid var(--rose);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    /* Product Gallery Page Styles */
+    .gallery-page {
+      min-height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .gallery-content {
+      position: relative;
+      z-index: 10;
+      padding: 8rem 2rem 4rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .gallery-header {
+      text-align: center;
+      color: white;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-title {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .gallery-subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .gallery-item {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery-item-image {
+      height: 200px;
+      background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: #666;
+    }
+
+    .gallery-item-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--mulberry);
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery-item-price {
+      font-size: 1.1rem;
+      color: var(--deep-rose);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 100px;
+      left: 2rem;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      padding: 1rem;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: white;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay" id="formOverlay"></div>
+
+  <!-- Navigation -->
+  <nav class="palace-nav">
+    <a onclick="scrollToSection('welcome')" class="nav-brand">Kala Kaksh</a>
+    <div class="nav-center">
+      <a onclick="scrollToSection('welcome')">Welcome</a>
+      <a onclick="scrollToSection('info')">My Info</a>
+      <a onclick="scrollToSection('artists')">Artists</a>
+      <a onclick="scrollToSection('search')">Search Kaksh</a>
+      <a onclick="scrollToSection('purchases')">Purchases</a>
+    </div>
+    <!-- <button class="cart-btn" onclick="scrollToSection('cart')">
+      🛒 Cart
+      <span class="cart-count" id="cartCount">0</span>
+    </button> -->
+    <div style="display: flex; gap: 1rem; align-items: center;">
+      <button class="cart-btn" onclick="scrollToSection('cart')">
+        🛒 Cart
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="action" onclick="logout()" style="padding: 0.5rem 1rem; font-size: 0.9rem; background: linear-gradient(135deg, #ff6b6b, #ee5a52);">
+        🚪 Logout
+      </button>
+    </div>    
+  </nav>
+
+  <!-- Welcome Section -->
+  <section id="welcome">
+    <div class="palace-card two-col">
+      <div>
+        <h1 class="palace-title">Welcome to Kala Kaksh</h1>
+        <p class="palace-subtitle">Discover authentic handcrafted treasures from master artisans across India. Each piece tells a story, carries tradition, and brings art into your life.</p>
+        <div class="button-row">
+          <button class="action" onclick="scrollToSection('search')">🔍 Start Shopping</button>
+          <button class="action" onclick="scrollToSection('artists')">👥 Meet Artists</button>
+        </div>
+      </div>
+      <div>
+        <img src="{{ url_for('static', filename='dark.png') }}" alt="Decorative Light" style="max-width: 400px; display: block; margin: 0 auto;">
+          <div style="text-align: center; margin-top: 1rem; color: #666; font-style: italic;">
+            Your journey into authentic craftsmanship begins here
+          </div>
+      </div>      
+    </div>
+  </section>
+
+<!-- Overlay -->
+<div id="formOverlay" class="hidden" 
+     style="position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index: 1000;" 
+     onclick="closeAllForms()"></div>
+
+<!-- Your existing info section -->
+<section id="info">
+  <div class="palace-card">
+    <h1 class="palace-title">My Information</h1>
+    <p class="palace-subtitle">Manage your personal details and delivery preferences</p>
+    
+    <div class="button-row">
+      <button class="action" onclick="toggleForm('infoForm')">Update My Info</button>
+      <button class="action" onclick="viewInfo()">View My Info</button>
+    </div>
+    
+    <div id="infoForm" class="form-container hidden" 
+         style="position: fixed; top:50%; left:50%; transform: translate(-50%, -50%); background:white; padding:2rem; border-radius:8px; z-index:1001;">
+      <h3 style="color: var(--mulberry); margin-bottom: 1.5rem;">Update Your Information</h3>
+      <form>
+        <input type="text" id="buyerName" placeholder="Full Name" required>
+        <input type="email" id="buyerEmail" placeholder="Email Address" required>
+        <input type="tel" id="buyerPhone" placeholder="Phone Number" required>
+        <textarea id="buyerAddress" placeholder="Full Address with Pincode" rows="3" required></textarea>
+        <input type="text" id="buyerCity" placeholder="City" required>
+        <input type="text" id="buyerState" placeholder="State" required>
+        <input type="text" id="buyerPincode" placeholder="Pincode" required>
+        <select id="buyerPreference">
+          <option value="">Delivery Preference</option>
+          <option value="morning">Morning (9 AM - 12 PM)</option>
+          <option value="afternoon">Afternoon (12 PM - 6 PM)</option>
+          <option value="evening">Evening (6 PM - 9 PM)</option>
+          <option value="anytime">Anytime</option>
+        </select>
+        <div class="button-row">
+          <button type="button" class="action" onclick="saveInfo()">💾 Save Information</button>
+          <button type="button" class="action" onclick="closeAllForms()" style="background: linear-gradient(135deg, #ccc, #999);">❌ Cancel</button>
+        </div>
+      </form>
+    </div>
+    
+    <div id="infoOutput" class="output"></div>
+    <div id="infoStatus"></div>
+  </div>
+</section>
+
+  <!-- Artists Section -->
+  <section id="artists">
+    <div class="palace-card">
+      <h1 class="palace-title">Featured Artisans</h1>
+      <p class="palace-subtitle">Meet the talented craftspeople behind these beautiful creations</p>
+      
+      <button class="action" onclick="viewArtists()">👥 View All Artists</button>
+      
+      <div id="artistsOutput" class="output"></div>
+      <div id="artistsStatus"></div>
+    </div>
+  </section>
+
+  <!-- Search Kaksh Section -->
+  <section id="search">
+    <div class="palace-card">
+      <h1 class="palace-title">Search Kaksh</h1>
+      <p class="palace-subtitle">Discover authentic handcrafted products by category</p>
+
+    <div class="button-row">
+      <button class="action" onclick="openProductGallery('saree')">Generate a Saree Room</button>
+      <button class="action" onclick="openProductGallery('painting')">Generate an Art Room</button>
+    </div>
+      
+<div class="search-container">
+  <input type="text" class="search-bar" placeholder="🔍 Search for products..." id="productSearch" oninput="searchProducts(this.value)">
+
+<div class="product-card" onclick="window.location.href = 'loading.html'">
+    <div class="product-icon">
+      🖼️
+    </div>
+    <div class="product-name">Pre-Generated Rooms</div>
+    <div class="product-desc">A unique, AI-powered design</div>
+</div>
+  <div class="product-grid">
+    <div class="product-card" onclick="openProductGallery('saree')">
+      <div class="product-icon">🥻</div>
+      <div class="product-name">Handwoven Sarees</div>
+      <div class="product-desc">Traditional silk and cotton sarees with intricate designs</div>
+    </div>
+    
+    </div>
+</div>
+          
+          <div class="product-card" onclick="openProductGallery('painting')">
+            <div class="product-icon">🎨</div>
+            <div class="product-name">Paintings & Art</div>
+            <div class="product-desc">Miniature paintings, folk art, and contemporary pieces</div>
+          </div>
+          
+          <div class="product-card" onclick="openProductGallery('jewellery')">
+            <div class="product-icon">💎</div>
+            <div class="product-name">Handcrafted Jewelry</div>
+            <div class="product-desc">Silver, brass, and traditional jewelry pieces</div>
+          </div>
+          
+          <div class="product-card" onclick="openProductGallery('pots')">
+            <div class="product-icon">🏺</div>
+            <div class="product-name">Pottery & Ceramics</div>
+            <div class="product-desc">Terracotta, blue pottery, and ceramic crafts</div>
+          </div>
+          
+          <div class="product-card" onclick="openProductGallery('rugs')">
+            <div class="product-icon">🥓</div>
+            <div class="product-name">Handwoven Rugs</div>
+            <div class="product-desc">Traditional carpets, dhurries, and floor coverings</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Section -->
+  <section id="cart">
+    <div class="palace-card">
+      <h1 class="palace-title">Shopping Cart</h1>
+      <p class="palace-subtitle">Review your selected handcrafted treasures</p>
+      
+      <div class="button-row">
+        <button class="action" onclick="viewCart()">🛒 View Cart</button>
+        <button class="action" onclick="clearCart()">🗑️ Clear Cart</button>
+        <button class="action" onclick="checkout()">💳 Checkout</button>
+      </div>
+      
+      <div id="cartOutput" class="output"></div>
+      <div id="cartStatus"></div>
+    </div>
+  </section>
+
+  <!-- Previous Purchases Section -->
+  <section id="purchases">
+    <div class="palace-card">
+      <h1 class="palace-title">Previous Purchases</h1>
+      <p class="palace-subtitle">Your collection of authentic artisan treasures</p>
+      
+      <button class="action" onclick="viewPurchases()">📦 View Purchase History</button>
+      
+      <div id="purchasesOutput" class="output"></div>
+    </div>
+  </section>
+
+  <!-- Product Gallery Pages (Hidden by default) -->
+  
+  <!-- Saree Gallery -->
+  <!-- <div id="sareeGallery" class="gallery-page hidden" style="background-image: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1200 800\"><defs><linearGradient id=\"bg1\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" style=\"stop-color:%23ff9a9e\"/><stop offset=\"100%\" style=\"stop-color:%23fecfef\"/></linearGradient></defs><rect width=\"100%\" height=\"100%\" fill=\"url(%23bg1)\"/></svg>')"> -->
+    <div id="sareeGallery" class="gallery-page hidden" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 1200 800&quot;><defs><linearGradient id=&quot;bg1&quot; x1=&quot;0%&quot; y1=&quot;0%&quot; x2=&quot;100%&quot; y2=&quot;100%&quot;><stop offset=&quot;0%&quot; style=&quot;stop-color:%23ff9a9e&quot;/><stop offset=&quot;100%&quot; style=&quot;stop-color:%23fecfef&quot;/></linearGradient></defs><rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;url(%23bg1)&quot;/></svg>')">
+    <button class="back-btn" onclick="closeGallery('sareeGallery')">←</button>
+    <div class="gallery-overlay"></div>
+    <div class="gallery-content">
+      <div class="gallery-header">
+        <h1 class="gallery-title">Handwoven Sarees</h1>
+        <p class="gallery-subtitle">Traditional silk and cotton sarees crafted by master weavers</p>
+      </div>
+      <div class="gallery-grid" id="sareeItems"></div>
+    </div>
+  </div>
+
+  <!-- Painting Gallery -->
+  <!-- <div id="paintingGallery" class="gallery-page hidden" style="background-image: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1200 800\"><defs><linearGradient id=\"bg2\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" style=\"stop-color:%23a8edea\"/><stop offset=\"100%\" style=\"stop-color:%23fed6e3\"/></linearGradient></defs><rect width=\"100%\" height=\"100%\" fill=\"url(%23bg2)\"/></svg>')"> -->
+    <div id="paintingGallery" class="gallery-page hidden" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 1200 800&quot;><defs><linearGradient id=&quot;bg2&quot; x1=&quot;0%&quot; y1=&quot;0%&quot; x2=&quot;100%&quot; y2=&quot;100%&quot;><stop offset=&quot;0%&quot; style=&quot;stop-color:%23a8edea&quot;/><stop offset=&quot;100%&quot; style=&quot;stop-color:%23fed6e3&quot;/></linearGradient></defs><rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;url(%23bg2)&quot;/></svg>')">
+    <button class="back-btn" onclick="closeGallery('paintingGallery')">←</button>
+    <div class="gallery-overlay"></div>
+    <div class="gallery-content">
+      <div class="gallery-header">
+        <h1 class="gallery-title">Paintings & Art</h1>
+        <p class="gallery-subtitle">Miniature paintings, folk art, and contemporary masterpieces</p>
+      </div>
+      <div class="gallery-grid" id="paintingItems"></div>
+    </div>
+  </div>
+
+  <!-- Jewellery Gallery -->
+  <!-- <div id="jewelleryGallery" class="gallery-page hidden" style="background-image: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1200 800\"><defs><linearGradient id=\"bg3\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" style=\"stop-color:%23ffecd2\"/><stop offset=\"100%\" style=\"stop-color:%23fcb69f\"/></linearGradient></defs><rect width=\"100%\" height=\"100%\" fill=\"url(%23bg3)\"/></svg>')"> -->
+    <div id="jewelleryGallery" class="gallery-page hidden" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 1200 800&quot;><defs><linearGradient id=&quot;bg3&quot; x1=&quot;0%&quot; y1=&quot;0%&quot; x2=&quot;100%&quot; y2=&quot;100%&quot;><stop offset=&quot;0%&quot; style=&quot;stop-color:%23ffecd2&quot;/><stop offset=&quot;100%&quot; style=&quot;stop-color:%23fcb69f&quot;/></linearGradient></defs><rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;url(%23bg3)&quot;/></svg>')">
+    <button class="back-btn" onclick="closeGallery('jewelleryGallery')">←</button>
+    <div class="gallery-overlay"></div>
+    <div class="gallery-content">
+      <div class="gallery-header">
+        <h1 class="gallery-title">Handcrafted Jewelry</h1>
+        <p class="gallery-subtitle">Traditional silver, brass, and authentic jewelry pieces</p>
+      </div>
+      <div class="gallery-grid" id="jewelleryItems"></div>
+    </div>
+  </div>
+
+  <!-- Pots Gallery -->
+  <!-- <div id="potsGallery" class="gallery-page hidden" style="background-image: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1200 800\"><defs><linearGradient id=\"bg4\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" style=\"stop-color:%23a18cd1\"/><stop offset=\"100%\" style=\"stop-color:%23fbc2eb\"/></linearGradient></defs><rect width=\"100%\" height=\"100%\" fill=\"url(%23bg4)\"/></svg>')"> -->
+    <div id="potsGallery" class="gallery-page hidden" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 1200 800&quot;><defs><linearGradient id=&quot;bg4&quot; x1=&quot;0%&quot; y1=&quot;0%&quot; x2=&quot;100%&quot; y2=&quot;100%&quot;><stop offset=&quot;0%&quot; style=&quot;stop-color:%23a18cd1&quot;/><stop offset=&quot;100%&quot; style=&quot;stop-color:%23fbc2eb&quot;/></linearGradient></defs><rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;url(%23bg4)&quot;/></svg>')">
+    <button class="back-btn" onclick="closeGallery('potsGallery')">←</button>
+    <div class="gallery-overlay"></div>
+    <div class="gallery-content">
+      <div class="gallery-header">
+        <h1 class="gallery-title">Pottery & Ceramics</h1>
+        <p class="gallery-subtitle">Terracotta, blue pottery, and traditional ceramic crafts</p>
+      </div>
+      <div class="gallery-grid" id="potsItems"></div>
+    </div>
+  </div>
+
+  <!-- Rugs Gallery -->
+  <!-- <div id="rugsGallery" class="gallery-page hidden" style="background-image: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1200 800\"><defs><linearGradient id=\"bg5\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" style=\"stop-color:%23ff9a9e\"/><stop offset=\"100%\" style=\"stop-color:%23fad0c4\"/></linearGradient></defs><rect width=\"100%\" height=\"100%\" fill=\"url(%23bg5)\"/></svg>')"> -->
+    <div id="rugsGallery" class="gallery-page hidden" style="background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 1200 800&quot;><defs><linearGradient id=&quot;bg5&quot; x1=&quot;0%&quot; y1=&quot;0%&quot; x2=&quot;100%&quot; y2=&quot;100%&quot;><stop offset=&quot;0%&quot; style=&quot;stop-color:%23ff9a9e&quot;/><stop offset=&quot;100%&quot; style=&quot;stop-color:%23fad0c4&quot;/></linearGradient></defs><rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;url(%23bg5)&quot;/></svg>')">
+    <button class="back-btn" onclick="closeGallery('rugsGallery')">←</button>
+    <div class="gallery-overlay"></div>
+    <div class="gallery-content">
+      <div class="gallery-header">
+        <h1 class="gallery-title">Handwoven Rugs</h1>
+        <p class="gallery-subtitle">Traditional carpets, dhurries, and artisan floor coverings</p>
+      </div>
+      <div class="gallery-grid" id="rugsItems"></div>
+    </div>
+  </div>
+
+<script>
+  // Memory storage for buyer data
+  let buyerData = {
+    info: null,
+    cart: [],
+    purchases: [],
+    wishlist: []
+  };
+
+  // Mock product data
+  const productCatalog = {
+    saree: [
+      { id: 1, name: "Banarasi Silk Saree", price: 15999, artist: "Meera Devi", description: "Traditional gold zari work on pure silk" },
+      { id: 2, name: "Kanjeevaram Saree", price: 12999, artist: "Lakshmi Arts", description: "South Indian temple border design" },
+      { id: 3, name: "Bandhani Saree", price: 8999, artist: "Rajesh Kumar", description: "Gujarati tie-dye technique on georgette" },
+      { id: 4, name: "Chanderi Saree", price: 6999, artist: "Priya Textiles", description: "Madhya Pradesh handloom with silver motifs" },
+      { id: 5, name: "Tussar Silk Saree", price: 9999, artist: "Bengal Weavers", description: "Natural tussar silk with hand-painted designs" }
+    ],
+    painting: [
+      { id: 6, name: "Madhubani Painting", price: 3999, artist: "Sunita Jha", description: "Traditional Bihar folk art on handmade paper" },
+      { id: 7, name: "Warli Art", price: 2999, artist: "Tribal Collective", description: "Maharashtra tribal art with natural pigments" },
+      { id: 8, name: "Tanjore Painting", price: 8999, artist: "Ravi Varma Arts", description: "South Indian temple art with gold foil" },
+      { id: 9, name: "Pichwai Painting", price: 12999, artist: "Udaipur Artists", description: "Rajasthani Krishna theme on silk canvas" },
+      { id: 10, name: "Miniature Mughal", price: 6999, artist: "Akbar Studio", description: "Detailed Mughal court scene painting" }
+    ],
+    jewellery: [
+      { id: 11, name: "Silver Oxidized Necklace", price: 2499, artist: "Jaipur Jewels", description: "Traditional Rajasthani silver jewelry" },
+      { id: 12, name: "Kundan Earrings", price: 4999, artist: "Royal Crafts", description: "Gold-plated kundan with pearls" },
+      { id: 13, name: "Temple Jewelry Set", price: 7999, artist: "South Jewels", description: "South Indian temple design in brass" },
+      { id: 14, name: "Tribal Silver Bracelet", price: 1999, artist: "Hill Tribes", description: "Handcrafted silver with traditional motifs" },
+      { id: 15, name: "Filigree Pendant", price: 3999, artist: "Cuttack Crafts", description: "Delicate silver filigree work from Odisha" }
+    ],
+    pots: [
+      { id: 16, name: "Blue Pottery Vase", price: 1999, artist: "Jaipur Potters", description: "Traditional Rajasthani blue pottery" },
+      { id: 17, name: "Terracotta Water Pot", price: 899, artist: "Village Crafts", description: "Natural clay water storage pot" },
+      { id: 18, name: "Ceramic Dinner Set", price: 4999, artist: "Modern Clay", description: "Hand-painted ceramic plates and bowls" },
+      { id: 19, name: "Decorative Urns", price: 2999, artist: "Heritage Pottery", description: "Large decorative pottery for gardens" },
+      { id: 20, name: "Tea Set Collection", price: 3999, artist: "Craft Corner", description: "Handmade ceramic tea set with tray" }
+    ],
+    rugs: [
+      { id: 21, name: "Kashmiri Carpet", price: 25999, artist: "Kashmir Weavers", description: "Hand-knotted wool carpet with Persian designs" },
+      { id: 22, name: "Dhurrie Rug", price: 3999, artist: "Rajasthan Looms", description: "Flat-woven cotton dhurrie in bright colors" },
+      { id: 23, name: "Jute Floor Mat", price: 1999, artist: "Eco Crafts", description: "Natural jute mat with traditional patterns" },
+      { id: 24, name: "Kilim Runner", price: 5999, artist: "Himalayan Crafts", description: "Wool kilim runner for hallways" },
+      { id: 25, name: "Prayer Rug", price: 4999, artist: "Sacred Weaves", description: "Traditional prayer rug with mihrab design" }
+    ]
+  };
+
+  // Mock artists data
+  const featuredArtists = [
+    { name: "Meera Devi", location: "Varanasi, UP", specialty: "Banarasi Silk Weaving", experience: "25 years", bio: "Master weaver preserving traditional Banarasi techniques" },
+    { name: "Rajesh Kumar", location: "Jaipur, Rajasthan", specialty: "Blue Pottery & Bandhani", experience: "18 years", bio: "Multi-talented artisan working in ceramics and textiles" },
+    { name: "Sunita Jha", location: "Madhubani, Bihar", specialty: "Madhubani Painting", experience: "15 years", bio: "Traditional folk artist teaching next generation" },
+    { name: "Lakshmi Arts", location: "Kanchipuram, TN", specialty: "Kanjeevaram Sarees", experience: "30 years", bio: "Family business creating authentic temple sarees" },
+    { name: "Kashmir Weavers", location: "Srinagar, J&K", specialty: "Hand-knotted Carpets", experience: "40 years", bio: "Cooperative preserving Kashmiri carpet traditions" }
+  ];
+
+  // Navigation helper
+  function scrollToSection(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+
+  // Form management
+  function toggleForm(formId) {
+    const form = document.getElementById(formId);
+    const overlay = document.getElementById('formOverlay');
+    
+    if (form.classList.contains('hidden')) {
+      closeAllForms();
+      form.classList.remove('hidden');
+      overlay.classList.remove('hidden');
+    } else {
+      closeAllForms();
+    }
+  }
+
+  function closeAllForms() {
+    const forms = document.querySelectorAll('.form-container');
+    const overlay = document.getElementById('formOverlay');
+    forms.forEach(form => form.classList.add('hidden'));
+    overlay.classList.add('hidden');
+  }
+
+
+
+  // Status message helper
+  function showStatus(elementId, message, type = 'success') {
+    const statusElement = document.getElementById(elementId);
+    statusElement.innerHTML = `<div class="status-message status-${type}">${message}</div>`;
+    setTimeout(() => {
+      statusElement.innerHTML = '';
+    }, 4000);
+  }
+
+  // Buyer Info functions
+  function saveInfo() {
+    const info = {
+      name: document.getElementById('buyerName').value.trim(),
+      email: document.getElementById('buyerEmail').value.trim(),
+      phone: document.getElementById('buyerPhone').value.trim(),
+      address: document.getElementById('buyerAddress').value.trim(),
+      city: document.getElementById('buyerCity').value.trim(),
+      state: document.getElementById('buyerState').value.trim(),
+      pincode: document.getElementById('buyerPincode').value.trim(),
+      preference: document.getElementById('buyerPreference').value,
+      savedAt: new Date().toLocaleString()
+    };
+    
+    if (!info.name || !info.email || !info.phone || !info.address) {
+      showStatus('infoStatus', 'Please fill in all required fields.', 'info');
+      return;
+    }
+    
+    buyerData.info = info;
+    showStatus('infoStatus', '✅ Your information has been saved successfully!');
+    closeAllForms();
+    viewInfo();
+  }
+
+  function viewInfo() {
+    const output = document.getElementById('infoOutput');
+    if (buyerData.info) {
+      output.innerHTML = `
+        <div style="background: rgba(255,255,255,0.8); padding: 2rem; border-radius: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 style="color: var(--mulberry); margin: 0;">Your Profile</h3>
+            <button class="action" onclick="toggleForm('infoForm')" style="font-size: 0.9rem; padding: 0.5rem 1rem;">✏️ Edit</button>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div>
+              <p><strong>Name:</strong> ${buyerData.info.name}</p>
+              <p><strong>Email:</strong> ${buyerData.info.email}</p>
+              <p><strong>Phone:</strong> ${buyerData.info.phone}</p>
+              <p><strong>Delivery Preference:</strong> ${buyerData.info.preference || 'Not set'}</p>
+            </div>
+            <div>
+              <p><strong>Address:</strong><br>${buyerData.info.address}</p>
+              <p><strong>City:</strong> ${buyerData.info.city}</p>
+              <p><strong>State:</strong> ${buyerData.info.state}</p>
+              <p><strong>Pincode:</strong> ${buyerData.info.pincode}</p>
+            </div>
+          </div>
+          <p style="text-align: right; font-size: 0.9rem; color: #666; margin-top: 1rem;">
+            Last updated: ${buyerData.info.savedAt}
+          </p>
+        </div>
+      `;
+    } else {
+      output.innerHTML = '<p style="text-align: center; color: #666; font-style: italic;">No information saved yet. Please add your details for a personalized shopping experience.</p>';
+    }
+  }
+
+  // Artists functions
+  function viewArtists() {
+    const output = document.getElementById('artistsOutput');
+    output.innerHTML = featuredArtists.map(artist => `
+      <div class="item-card">
+        <div class="card-title">${artist.name}</div>
+        <p><strong>Location:</strong> ${artist.location}</p>
+        <p><strong>Specialty:</strong> ${artist.specialty}</p>
+        <p><strong>Experience:</strong> ${artist.experience}</p>
+        <p style="font-style: italic; color: #666; margin-top: 1rem;">${artist.bio}</p>
+        <div class="card-actions">
+          <button class="action" onclick="viewArtistProducts('${artist.name}')">🛍️ View Products</button>
+          <button class="action" onclick="followArtist('${artist.name}')" style="background: linear-gradient(135deg, #ffd93d, #ffcd3c);">⭐ Follow</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function viewArtistProducts(artistName) {
+    showStatus('artistsStatus', `Showing products by ${artistName}`, 'info');
+    // In a real app, this would filter products by artist
+  }
+
+  function followArtist(artistName) {
+    showStatus('artistsStatus', `✅ Now following ${artistName}! You'll get updates on their new creations.`);
+  }
+
+  // Product search and gallery functions
+  function searchProducts(query) {
+    // Simple search functionality
+    if (!query.trim()) return;
+    showStatus('cartStatus', `🔍 Searching for "${query}"...`, 'info');
+  }
+
+// Replace the existing openProductGallery function with this:
+function openProductGallery(productType) {
+  // Hide main sections and nav
+  document.querySelectorAll('section').forEach(section => section.style.display = 'none');
+  document.querySelector('.palace-nav').style.display = 'none';
+
+  // Show specific gallery
+  const gallery = document.getElementById(productType + 'Gallery');
+  gallery.classList.remove('hidden');
+
+  // Display a loading message
+  const container = document.getElementById(productType + 'Items');
+container.innerHTML = `
+  <p style="text-align: center;">
+    Generating your custom room image using Google Imagen API... ⏳ <br><br>
+    Please wait while Google processes your request.
+  </p>
+`;
+
+  // Fetch the new image in real-time from the backend
+  fetch('http://127.0.0.1:5000/api/generate-realtime', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ product: productType }),
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    renderGeneratedImage(container, data.image_uri); 
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    container.innerHTML = `<p style="text-align: center; color: var(--deep-rose);">Failed to generate image. Please check the server.</p>`;
+  });
+}
+
+// Add this new function to handle rendering a single generated image
+function renderGeneratedImage(container, image_uri) {
+  container.innerHTML = '';
+  const itemDiv = document.createElement('div');
+  itemDiv.className = 'gallery-item';
+  itemDiv.innerHTML = `
+    <div class="gallery-item-image" style="height: auto;">
+      <img src="${image_uri}" alt="AI generated room with product" style="width: 100%; height: auto; border-radius: 12px; display: block;">
+    </div>
+    <div class="gallery-item-name">Your Custom Room</div>
+    <div class="gallery-item-price">Generated just for you</div>
+    <p style="color: #666; font-size: 0.9rem; margin: 0.5rem 0;">A unique, AI-powered design</p>
+    <div style="display: flex; gap: 0.5rem; justify-content: center;">
+      <button class="action" onclick="addToCart('generated_item')" style="font-size: 0.9rem; padding: 0.7rem 1rem;">🛒 Add to Cart</button>
+      <button class="action" onclick="addToWishlist('generated_item')" style="background: linear-gradient(135deg, #ffd93d, #ffcd3c); font-size: 0.9rem; padding: 0.7rem 1rem;">💖 Wishlist</button>
+    </div>
+  `;
+  container.appendChild(itemDiv);
+}
+
+// Keep all the other functions from your original code.
+
+  function closeGallery(galleryId) {
+    // Hide gallery
+    document.getElementById(galleryId).classList.add('hidden');
+    
+    // Show main sections and nav
+    document.querySelectorAll('section').forEach(section => section.style.display = 'flex');
+    document.querySelector('.palace-nav').style.display = 'flex';
+  }
+
+  function loadGalleryProducts(productType) {
+    const products = productCatalog[productType];
+    const container = document.getElementById(productType + 'Items');
+    
+    container.innerHTML = products.map(product => `
+      <div class="gallery-item">
+        <div class="gallery-item-image">
+          Product Image<br>${product.name}
+        </div>
+        <div class="gallery-item-name">${product.name}</div>
+        <div class="gallery-item-price">₹${product.price.toLocaleString()}</div>
+        <p style="color: #666; font-size: 0.9rem; margin: 0.5rem 0;">by ${product.artist}</p>
+        <p style="font-size: 0.9rem; margin-bottom: 1rem;">${product.description}</p>
+        <div style="display: flex; gap: 0.5rem; justify-content: center;">
+          <button class="action" onclick="addToCart(${product.id})" style="font-size: 0.9rem; padding: 0.7rem 1rem;">🛒 Add to Cart</button>
+          <button class="action" onclick="addToWishlist(${product.id})" style="background: linear-gradient(135deg, #ffd93d, #ffcd3c); font-size: 0.9rem; padding: 0.7rem 1rem;">💖 Wishlist</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function openAllProductsGallery() {
+  // Hide main sections and nav
+  document.querySelectorAll('section').forEach(section => section.style.display = 'none');
+  document.querySelector('.palace-nav').style.display = 'none';
+
+  // Create a new gallery page for all products
+  const allProductsGallery = document.createElement('div');
+  allProductsGallery.id = 'allProductsGallery';
+  allProductsGallery.className = 'gallery-page';
+  allProductsGallery.innerHTML = `
+    <button class="back-btn" onclick="closeAllGallery()">←</button>
+    <div class="gallery-overlay"></div>
+    <div class="gallery-content">
+      <div class="gallery-header">
+        <h1 class="gallery-title">All Products</h1>
+        <p class="gallery-subtitle">A collection of all handcrafted treasures</p>
+      </div>
+      <div class="gallery-grid" id="allProductsItems"></div>
+    </div>
+  `;
+  document.body.appendChild(allProductsGallery);
+
+  // Display a loading message
+  const container = document.getElementById('allProductsItems');
+  container.innerHTML = '<p style="text-align: center;">Loading all products...</p>';
+
+  // Fetch all product data from a new backend endpoint
+  fetch('http://127.0.0.1:5000/api/all-products')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      renderAllProducts(container, data.products);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      container.innerHTML = `<p style="text-align: center; color: var(--deep-rose);">Failed to load products. Please check the server.</p>`;
+    });
+}
+
+// Helper function to render all products
+function renderAllProducts(container, products) {
+  container.innerHTML = '';
+  products.forEach(product => {
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'gallery-item';
+
+    itemDiv.innerHTML = `
+      <div class="gallery-item-image" style="height: 200px;">
+        <img src="${product.image}" alt="${product.name}" style="width: 100%; height: auto; border-radius: 12px; display: block;">
+      </div>
+      <div class="gallery-item-name">${product.name}</div>
+      <div class="gallery-item-price">₹${product.price.toLocaleString()}</div>
+      <p style="color: #666; font-size: 0.9rem; margin: 0.5rem 0;">by ${product.artist}</p>
+      <p style="font-size: 0.9rem; margin-bottom: 1rem;">${product.description}</p>
+      <div style="display: flex; gap: 0.5rem; justify-content: center;">
+        <button class="action" onclick="addToCart(1)" style="font-size: 0.9rem; padding: 0.7rem 1rem;">🛒 Add to Cart</button>
+        <button class="action" onclick="addToWishlist(1)" style="background: linear-gradient(135deg, #ffd93d, #ffcd3c); font-size: 0.9rem; padding: 0.7rem 1rem;">💖 Wishlist</button>
+      </div>
+    `;
+
+    // Make the entire item clickable
+    itemDiv.addEventListener('click', () => {
+      const url = `product_details.html?name=${encodeURIComponent(product.name)}&price=${product.price}&artist=${encodeURIComponent(product.artist)}&desc=${encodeURIComponent(product.description)}&image=${encodeURIComponent(product.image)}`;
+      window.location.href = url;
+    });
+
+    container.appendChild(itemDiv);
+  });
+}
+
+// This function will close the dynamically created gallery page
+function closeAllGallery() {
+  const allProductsGallery = document.getElementById('allProductsGallery');
+  if (allProductsGallery) {
+    allProductsGallery.remove();
+  }
+  document.querySelectorAll('section').forEach(section => section.style.display = 'flex');
+  document.querySelector('.palace-nav').style.display = 'flex';
+}
+  // Cart functions
+  function addToCart(productId) {
+    // Find product in catalog
+    let product = null;
+    for (const category in productCatalog) {
+      product = productCatalog[category].find(p => p.id === productId);
+      if (product) break;
+    }
+    
+    if (product) {
+      // Check if already in cart
+      const existing = buyerData.cart.find(item => item.id === productId);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        buyerData.cart.push({ ...product, quantity: 1, addedAt: new Date().toLocaleString() });
+      }
+      
+      updateCartCount();
+      showStatus('cartStatus', `✅ ${product.name} added to cart!`);
+    }
+  }
+
+  function addToWishlist(productId) {
+    // Find product in catalog
+    let product = null;
+    for (const category in productCatalog) {
+      product = productCatalog[category].find(p => p.id === productId);
+      if (product) break;
+    }
+    
+    if (product && !buyerData.wishlist.find(item => item.id === productId)) {
+      buyerData.wishlist.push({ ...product, addedAt: new Date().toLocaleString() });
+      showStatus('cartStatus', `💖 ${product.name} added to wishlist!`);
+    }
+  }
+
+  function updateCartCount() {
+    const count = buyerData.cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById('cartCount').textContent = count;
+  }
+
+  function viewCart() {
+    const output = document.getElementById('cartOutput');
+    if (buyerData.cart.length > 0) {
+      const total = buyerData.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      output.innerHTML = `
+        <div style="background: rgba(255,255,255,0.8); padding: 2rem; border-radius: 16px;">
+          <h3 style="color: var(--mulberry); margin-bottom: 1.5rem;">Your Shopping Cart</h3>
+          ${buyerData.cart.map(item => `
+            <div class="item-card" style="margin: 1rem 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div class="card-title">${item.name}</div>
+                  <p>by ${item.artist}</p>
+                  <p><strong>₹${item.price.toLocaleString()} × ${item.quantity}</strong></p>
+                </div>
+                <div class="card-actions">
+                  <button class="action" onclick="changeQuantity(${item.id}, -1)" style="padding: 0.5rem;">-</button>
+                  <span style="margin: 0 1rem; font-weight: 600;">${item.quantity}</span>
+                  <button class="action" onclick="changeQuantity(${item.id}, 1)" style="padding: 0.5rem;">+</button>
+                  <button class="action" onclick="removeFromCart(${item.id})" style="background: linear-gradient(135deg, #ff6b6b, #ee5a52); margin-left: 1rem;">🗑️</button>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+          <div style="text-align: right; margin-top: 2rem; padding-top: 1rem; border-top: 2px solid var(--rose);">
+            <h3 style="color: var(--deep-rose);">Total: ₹${total.toLocaleString()}</h3>
+          </div>
+        </div>
+      `;
+    } else {
+      output.innerHTML = '<p style="text-align: center; color: #666; font-style: italic;">Your cart is empty. Start shopping to add beautiful handcrafted items!</p>';
+    }
+  }
+
+  function changeQuantity(productId, change) {
+    const item = buyerData.cart.find(item => item.id === productId);
+    if (item) {
+      item.quantity += change;
+      if (item.quantity <= 0) {
+        removeFromCart(productId);
+      } else {
+        updateCartCount();
+        viewCart();
+      }
+    }
+  }
+
+  function removeFromCart(productId) {
+    buyerData.cart = buyerData.cart.filter(item => item.id !== productId);
+    updateCartCount();
+    viewCart();
+    showStatus('cartStatus', '🗑️ Item removed from cart.', 'info');
+  }
+
+  function clearCart() {
+    if (buyerData.cart.length > 0 && confirm('Are you sure you want to clear your cart?')) {
+      buyerData.cart = [];
+      updateCartCount();
+      viewCart();
+      showStatus('cartStatus', '🗑️ Cart cleared.', 'info');
+    }
+  }
+
+  function checkout() {
+    if (buyerData.cart.length === 0) {
+      showStatus('cartStatus', 'Your cart is empty. Add some items first!', 'info');
+      return;
+    }
+    
+    if (!buyerData.info) {
+      showStatus('cartStatus', 'Please add your delivery information first.', 'info');
+      scrollToSection('info');
+      return;
+    }
+    
+    // Simulate checkout process
+    const total = buyerData.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const purchase = {
+      id: Date.now(),
+      items: [...buyerData.cart],
+      total: total,
+      date: new Date().toLocaleString(),
+      status: 'Order Placed'
+    };
+    
+    buyerData.purchases.push(purchase);
+    buyerData.cart = [];
+    updateCartCount();
+    viewCart();
+    
+    showStatus('cartStatus', `✅ Order placed successfully! Total: ₹${total.toLocaleString()}. You will receive a confirmation email shortly.`);
+  }
+
+  function viewPurchases() {
+    const output = document.getElementById('purchasesOutput');
+    if (buyerData.purchases.length > 0) {
+      output.innerHTML = buyerData.purchases.map(purchase => `
+        <div class="item-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <div class="card-title">Order #${purchase.id}</div>
+            <span style="background: var(--blush); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">${purchase.status}</span>
+          </div>
+          <p><strong>Date:</strong> ${purchase.date}</p>
+          <p><strong>Items:</strong> ${purchase.items.length} item(s)</p>
+          <div style="margin: 1rem 0;">
+            ${purchase.items.map(item => `
+              <div style="margin: 0.5rem 0; padding: 0.5rem; background: rgba(255,255,255,0.5); border-radius: 8px;">
+                ${item.name} × ${item.quantity} - ₹${(item.price * item.quantity).toLocaleString()}
+              </div>
+            `).join('')}
+          </div>
+          <p style="text-align: right;"><strong>Total: ₹${purchase.total.toLocaleString()}</strong></p>
+        </div>
+      `).join('');
+    } else {
+      output.innerHTML = '<p style="text-align: center; color: #666; font-style: italic;">No purchases yet. Start shopping to build your collection of authentic handcrafted items!</p>';
+    }
+  }
+
+  // Event handling
+  document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('formOverlay');
+    
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        closeAllForms();
+      }
+    });
+    
+    document.querySelectorAll('.form-container').forEach(function(form) {
+      form.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    });
+  });
+
+  // Initialize page
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      showStatus('infoStatus', '🙏 Welcome to Kala Kaksh! Discover authentic handcrafted treasures from master artisans.', 'info');
+    }, 1000);
+    
+    viewInfo();
+    updateCartCount();
+  });
+
+   function logout() {
+    window.location.href = "login.html";
+  }
+</script>
+</body>
+</html>
