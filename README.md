@@ -55,7 +55,7 @@ For better understanding of the complete project implementation, please check ou
 ### AI-Generated Room Visualization
 ![WhatsApp Image 2025-09-21 at 22 28 12_de1da27e](https://github.com/user-attachments/assets/946c7e1b-c504-4d6b-b300-bea11adbb866)
 
-*Custom room generated with traditional Indian handicrafts using Vertex AI*
+*Custom room generated with traditional Indian handicrafts using Google Imagen*
 
 ### Buyer Shopping Experience
 ![WhatsApp Image 2025-09-21 at 22 26 05_b34c5939](https://github.com/user-attachments/assets/7734a196-8773-4512-b1fe-522b188ef291)
