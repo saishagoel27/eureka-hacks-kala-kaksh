@@ -36,12 +36,13 @@
 ## 📸 Screenshots
 
 ### Artisan Dashboard - Collaboration Network
-![Artisan Collaboration]()![WhatsApp Image 2025-09-21 at 22 38 37_68c8b558](https://github.com/user-attachments/assets/3c0a66bf-2dfd-4a11-a27d-6b467979adb6)
+()![WhatsApp Image 2025-09-21 at 22 38 37_68c8b558](https://github.com/user-attachments/assets/3c0a66bf-2dfd-4a11-a27d-6b467979adb6)
 
 *Connect with fellow artisans and build meaningful partnerships*
 
 ### AI-Generated Room Visualization
-![AI Room Generation](screenshot2.png)
+()![WhatsApp Image 2025-09-21 at 22 28 12_de1da27e](https://github.com/user-attachments/assets/946c7e1b-c504-4d6b-b300-bea11adbb866)
+
 *Custom room generated with traditional Indian handicrafts using Vertex AI*
 
 ### Buyer Shopping Experience
