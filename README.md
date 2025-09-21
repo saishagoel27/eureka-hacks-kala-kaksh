@@ -1,10 +1,12 @@
 # 🎨 Kala Kaksh - AI-Powered Artisan Marketplace
 
 <div align="center">
-  [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
-  [![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)](https://flask.palletsprojects.com)
-  [![Google Cloud](https://img.shields.io/badge/Google%20Cloud-Vertex%20AI-orange.svg)](https://cloud.google.com/vertex-ai)
-  [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
+[![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)](https://flask.palletsprojects.com)
+[![Google Cloud](https://img.shields.io/badge/Google%20Cloud-Vertex%20AI-orange.svg)](https://cloud.google.com/vertex-ai)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 </div>
 
 ## 🌟 Overview
@@ -12,6 +14,15 @@
 **Kala Kaksh** is a revolutionary platform that bridges the gap between traditional Indian artisans and modern buyers through the power of AI. Our platform combines authentic handcrafted treasures with cutting-edge technology, offering AI-generated room visualizations powered by Google's Vertex AI and Imagen 3.0.
 
 *"Where tradition meets technology, shaping the majestic future of artisan shopping"*
+
+## 🏛️ Project Architecture
+
+For better understanding of the complete project implementation, please check our backend repository that handles core functionalities:
+
+**🔗 Backend Repository**: [Kala-Kaksh](https://github.com/saishagoel27/Kala-Kaksh)
+- Database management and API endpoints
+- Product catalog and inventory management
+> This repository focuses on the AI-powered frontend features, while the backend repository contains the core marketplace functionalities.
 
 ## ✨ Key Features
 
@@ -61,7 +72,7 @@
 
 *Beautiful introduction to the world of Indian handicrafts*
 
-##  Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -172,7 +183,6 @@ Kala-kaksh_genai/
 - **Custom Prompts**: Dynamic room generation based on product types
 - **Real-time Processing**: Live image generation and display
 
-
 ## 🌐 Product Categories
 
 - **🥻 Handwoven Sarees**: Traditional silk and cotton sarees
@@ -180,7 +190,6 @@ Kala-kaksh_genai/
 - **💎 Handcrafted Jewelry**: Silver, brass, and traditional jewelry
 - **🏺 Pottery & Ceramics**: Terracotta, blue pottery, ceramic crafts
 - **🥓 Handwoven Rugs**: Traditional carpets, dhurries, floor coverings
-
 
 ### Development Setup
 
@@ -190,14 +199,12 @@ Kala-kaksh_genai/
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-##  Acknowledgments
+## 🙏 Acknowledgments
 
 - **Artisan Community**: For preserving traditional crafts and inspiring this platform
 - **Google Cloud**: For providing cutting-edge AI capabilities through Vertex AI
 - **Flask Community**: For the robust web framework
 - **Open Source Contributors**: For making this project possible
-
 
 <div align="center">
   <p><strong>Made with ❤️ for preserving traditional Indian craftsmanship</strong></p>
