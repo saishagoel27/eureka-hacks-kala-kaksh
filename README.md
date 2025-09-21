@@ -36,7 +36,7 @@
 ## 📸 Screenshots
 
 ### Artisan Dashboard - Collaboration Network
-![Artisan Collaboration](c:\Users\saish\Desktop\WhatsApp Image 2025-09-21 at 22.38.37_68c8b558.jpg)
+![Artisan Collaboration](screenshot1.png)
 *Connect with fellow artisans and build meaningful partnerships*
 
 ### AI-Generated Room Visualization
