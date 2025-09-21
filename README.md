@@ -4,8 +4,11 @@
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)](https://flask.palletsprojects.com)
-[![Google Cloud](https://img.shields.io/badge/Google%20Cloud-Vertex%20AI-orange.svg)](https://cloud.google.com/vertex-ai)
+[![Google Cloud](https://img.shields.io/badge/Google%20Cloud-Platform-4285F4.svg)](https://cloud.google.com)
+[![Vertex AI](https://img.shields.io/badge/Vertex%20AI-Enabled-orange.svg)](https://cloud.google.com/vertex-ai)
+[![Imagen AI](https://img.shields.io/badge/Imagen%20AI-3.0-red.svg)](https://cloud.google.com/vertex-ai/generative-ai/docs/image/overview)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 
 </div>
 
