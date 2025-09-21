@@ -41,7 +41,7 @@ For better understanding of the complete project implementation, please check ou
 - **Personalized Experience**: Save preferences and wishlist items
 
 ### 🤖 AI-Powered Features
-- **Real-time Image Generation**: Generate custom room designs with Google Vertex AI
+- **Real-time Image Generation**: Generate custom room designs
 - **Enhanced Descriptions**: AI-powered product and story enhancement
 - **Visual Commerce**: See how products look in beautifully designed spaces
 
