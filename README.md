@@ -36,7 +36,7 @@
 ## 📸 Screenshots
 
 ### Artisan Dashboard - Collaboration Network
-![Artisan Collaboration](screenshot1.png)
+![Artisan Collaboration](![alt text](image.png))
 *Connect with fellow artisans and build meaningful partnerships*
 
 ### AI-Generated Room Visualization
