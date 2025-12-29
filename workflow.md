@@ -126,7 +126,7 @@ JSON Storage (data/)
 ```
 
 
-## 🎯 **Success Metrics**
+##  **Success Metrics**
 
 ### **Technical KPIs**
 - ✅ **API Response Time**: < 2 seconds for AI enhancement
@@ -144,6 +144,6 @@ JSON Storage (data/)
 
 **🎨 End-to-End Artisan Empowerment Pipeline**
 
-*Built with Google Cloud • Enhanced by Gemini AI • Deployed with Pride*
+*Built with Google Cloud • Enhanced by Gemini AI*
 
 </div>
