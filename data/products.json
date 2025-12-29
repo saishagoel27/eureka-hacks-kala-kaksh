@@ -1,0 +1,355 @@
+[
+  {
+    "id": "d4e5f6g7-h8i9-0123-jklm-456789012345",
+    "artisan_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "name": "Blue Ceramic Vase",
+    "description": "Handcrafted traditional blue pottery vase with intricate floral designs. Made using natural clay and non-toxic colors.",
+    "price": 1200,
+    "category": "Home Decor",
+    "subcategory": "Vases",
+    "materials": [
+      "Clay",
+      "Natural colors"
+    ],
+    "dimensions": {
+      "height": 25,
+      "diameter": 15
+    },
+    "weight": 0.8,
+    "stock_quantity": 5,
+    "images": [],
+    "created_at": "2023-09-15T13:30:00",
+    "updated_at": "2023-09-15T13:30:00",
+    "status": "active",
+    "tags": [
+      "pottery",
+      "blue pottery",
+      "vase",
+      "handmade"
+    ],
+    "featured": true
+  },
+  {
+    "id": "e5f6g7h8-i9j0-1234-klmn-567890123456",
+    "artisan_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "name": "Ceramic Tea Set",
+    "description": "Beautiful hand-painted tea set with 4 cups and teapot. Made with food-safe glazes and traditional designs.",
+    "price": 1800,
+    "category": "Kitchen",
+    "subcategory": "Dining",
+    "materials": [
+      "Clay",
+      "Natural colors"
+    ],
+    "dimensions": {
+      "length": 30,
+      "width": 20,
+      "height": 15
+    },
+    "weight": 1.2,
+    "stock_quantity": 3,
+    "images": [],
+    "created_at": "2023-09-15T14:00:00",
+    "updated_at": "2023-09-15T14:00:00",
+    "status": "active",
+    "tags": [
+      "pottery",
+      "tea set",
+      "dining",
+      "handmade"
+    ],
+    "featured": false
+  },
+  {
+    "id": "f6g7h8i9-j0k1-2345-lmno-678901234567",
+    "artisan_id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "name": "Embroidered Wall Hanging",
+    "description": "Vibrant mirror work wall hanging with traditional Kutch patterns. Each piece takes over 20 days to complete.",
+    "price": 2500,
+    "category": "Home Decor",
+    "subcategory": "Wall Art",
+    "materials": [
+      "Cotton",
+      "Mirrors",
+      "Thread"
+    ],
+    "dimensions": {
+      "length": 60,
+      "width": 40
+    },
+    "weight": 0.5,
+    "stock_quantity": 2,
+    "images": [],
+    "created_at": "2023-09-15T14:30:00",
+    "updated_at": "2023-09-15T14:30:00",
+    "status": "active",
+    "tags": [
+      "embroidery",
+      "wall art",
+      "kutch",
+      "handmade"
+    ],
+    "featured": true
+  },
+  {
+    "id": "g7h8i9j0-k1l2-3456-mnop-789012345678",
+    "artisan_id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "name": "Embroidered Cushion Covers (Set of 2)",
+    "description": "Hand-embroidered cushion covers with traditional mirror work. Made with sustainable cotton and natural dyes.",
+    "price": 1200,
+    "category": "Home Decor",
+    "subcategory": "Cushions",
+    "materials": [
+      "Cotton",
+      "Mirrors",
+      "Thread"
+    ],
+    "dimensions": {
+      "length": 40,
+      "width": 40
+    },
+    "weight": 0.3,
+    "stock_quantity": 8,
+    "images": [],
+    "created_at": "2023-09-15T15:00:00",
+    "updated_at": "2023-09-15T15:00:00",
+    "status": "active",
+    "tags": [
+      "embroidery",
+      "cushions",
+      "home decor",
+      "handmade"
+    ],
+    "featured": false
+  },
+  {
+    "id": "h8i9j0k1-l2m3-4567-nopq-890123456789",
+    "artisan_id": "c3d4e5f6-g7h8-9012-ijkl-345678901234",
+    "name": "Carved Wooden Box",
+    "description": "Intricately carved storage box made from sustainable sheesham wood. Features traditional geometric patterns.",
+    "price": 1800,
+    "category": "Home Decor",
+    "subcategory": "Storage",
+    "materials": [
+      "Sheesham wood",
+      "Natural polish"
+    ],
+    "dimensions": {
+      "length": 25,
+      "width": 15,
+      "height": 10
+    },
+    "weight": 0.9,
+    "stock_quantity": 3,
+    "images": [],
+    "created_at": "2023-09-15T15:30:00",
+    "updated_at": "2023-09-15T15:30:00",
+    "status": "active",
+    "tags": [
+      "woodcarving",
+      "storage",
+      "handmade"
+    ],
+    "featured": true
+  },
+  {
+    "id": "i9j0k1l2-m3n4-5678-opqr-901234567890",
+    "artisan_id": "c3d4e5f6-g7h8-9012-ijkl-345678901234",
+    "name": "Wooden Wall Panels (Set of 3)",
+    "description": "Hand-carved decorative wall panels showing scenes from Indian mythology. Each panel is carved from a single piece of wood.",
+    "price": 3500,
+    "category": "Home Decor",
+    "subcategory": "Wall Art",
+    "materials": [
+      "Teak wood",
+      "Natural finish"
+    ],
+    "dimensions": {
+      "length": 30,
+      "width": 20,
+      "height": 2
+    },
+    "weight": 1.5,
+    "stock_quantity": 2,
+    "images": [],
+    "created_at": "2023-09-15T16:00:00",
+    "updated_at": "2023-09-15T16:00:00",
+    "status": "active",
+    "tags": [
+      "woodcarving",
+      "wall art",
+      "handmade"
+    ],
+    "featured": false
+  },
+  {
+    "id": "3a2acd50-610d-49f6-9b56-d2b7a02c69ee",
+    "artisan_id": "d1e28f47-1012-482e-b0a6-a83b17edce32",
+    "name": " Traditional Blue Pottery Vase",
+    "description": "Handcrafted blue pottery vase with intricate floral patterns. Made using traditional techniques passed down through generations. Food-safe and lead-free glazes.",
+    "price": 2500.0,
+    "category": "Home Decor",
+    "subcategory": null,
+    "materials": [
+      "Clay",
+      "Natural blue dye",
+      "Lead-free glaze"
+    ],
+    "dimensions": null,
+    "weight": null,
+    "stock_quantity": 5,
+    "images": [
+      "uploads/products/3a2acd50-610d-49f6-9b56-d2b7a02c69ee/616c5838-5e90-4086-a4ab-ffdd09581bae.jpg"
+    ],
+    "created_at": "2025-09-21T16:31:56.875824",
+    "updated_at": "2025-09-21T16:33:10.729904",
+    "status": "active",
+    "tags": [],
+    "featured": false
+  },
+  {
+    "id": "6500f5d4-bb90-424d-8a5d-0dc97036fb25",
+    "artisan_id": "507ef312-4e62-402b-901c-6cbecc23d463",
+    "name": "Blue Clay Bowl",
+    "description": "Small Bowl made of Clay with blue colour",
+    "price": 850.0,
+    "category": "Kitchen",
+    "subcategory": null,
+    "materials": [
+      "Clay",
+      "Blue Dye etc."
+    ],
+    "dimensions": null,
+    "weight": null,
+    "stock_quantity": 1,
+    "images": [
+      "uploads/products/6500f5d4-bb90-424d-8a5d-0dc97036fb25/891032ce-4892-4fa2-844c-10e153be7232.jpg"
+    ],
+    "created_at": "2025-09-21T18:03:10.884910",
+    "updated_at": "2025-09-21T18:04:02.325062",
+    "status": "active",
+    "tags": [],
+    "featured": false
+  },
+  {
+    "id": "d10be7b1-80ae-49bc-a26d-e6ffb6240470",
+    "artisan_id": "779c3645-1038-46f5-8fca-94feda8bf4ee",
+    "name": "White Ceramic Pot",
+    "description": "This exquisite handcrafted white ceramic pot showcases the artistry of handcraft masters, featuring round pot made of white clay using Traditional materials. Each piece reflects skilled craftsmanship and celebrates India's rich cultural heritage, bringing authentic traditional artistry to your collection.",
+    "price": 870.0,
+    "category": "Home Decor",
+    "subcategory": null,
+    "materials": [
+      "white",
+      "natural glaze etc."
+    ],
+    "dimensions": null,
+    "weight": null,
+    "stock_quantity": 4,
+    "images": [
+      "uploads/products/d10be7b1-80ae-49bc-a26d-e6ffb6240470/31bb73cf-5bc9-4e73-a747-daa11ec36e8d.jpg"
+    ],
+    "created_at": "2025-09-21T19:43:36.442331",
+    "updated_at": "2025-09-21T19:44:23.471567",
+    "status": "active",
+    "tags": [],
+    "featured": false
+  },
+  {
+    "id": "c3e566d0-2c66-46c4-b64a-3c5465550d97",
+    "artisan_id": "02719e00-fd0e-428d-84de-b7dd35005078",
+    "name": "Embroidered Table Runner",
+    "description": "This exquisite handcrafted embroidered table runner showcases the artistry of handcraft masters, featuring table runner with mirror work using Traditional materials. Each piece reflects skilled craftsmanship and celebrates India's rich cultural heritage, bringing authentic traditional artistry to your collection.",
+    "price": 870.0,
+    "category": "Home Decor",
+    "subcategory": null,
+    "materials": [
+      "cotton",
+      "mirrors",
+      "gold thread"
+    ],
+    "dimensions": null,
+    "weight": null,
+    "stock_quantity": 3,
+    "images": [
+      "uploads/products/c3e566d0-2c66-46c4-b64a-3c5465550d97/e3adae6d-2b90-4a8e-9395-1883429ea57b.jpg"
+    ],
+    "created_at": "2025-09-21T20:05:14.103432",
+    "updated_at": "2025-09-21T20:05:52.611284",
+    "status": "active",
+    "tags": [],
+    "featured": false
+  },
+  {
+    "id": "d68a201c-46b9-4da8-b123-54f418ffcedb",
+    "artisan_id": "cdbc8ef3-a20f-4e0b-9dbc-e349e0960d1e",
+    "name": "Red Clay Water Pot",
+    "description": "Hold in your hands a legacy, forged in the sun-drenched clay of India.  For generations, the skilled hands of an artisan family, steeped in ancient traditions passed down through countless summers, have shaped this Red Clay Water Pot.  Feel the warmth of their touch, the quiet devotion poured into each curve and subtle imperfection\u2014a whisper of hopes and dreams, woven into the very fabric of the earth itself. This isn't merely a vessel for water; it's a sacred offering, imbued with the vibrant spirit of Indian culture, a connection to centuries of festivals, rituals, and the simple, profound act of sharing life's daily blessings.  Bring home a piece of India's soul, and let its earthy grace enrich your life with beauty, comfort, and the enduring spirit of handcrafted heritage.",
+    "price": 560.0,
+    "category": "Kitchen",
+    "subcategory": null,
+    "materials": [
+      "Red Clay"
+    ],
+    "dimensions": null,
+    "weight": null,
+    "stock_quantity": 5,
+    "images": [
+      "uploads/products/d68a201c-46b9-4da8-b123-54f418ffcedb/dda71c50-b3d0-4533-980d-f2ad6db352f7.jpg"
+    ],
+    "created_at": "2025-09-21T20:24:25.235511",
+    "updated_at": "2025-09-21T20:24:53.036179",
+    "status": "active",
+    "tags": [],
+    "featured": false
+  },
+  {
+    "id": "e07f1b83-e156-4bb4-b428-388d74c7072c",
+    "artisan_id": "8dcff99c-69d0-4885-9cc1-dd3f70d76c48",
+    "name": "Sandalwood Jewelry Box",
+    "description": "These weathered hands, shaped by years of patient carving and filled with *\u0938\u092e\u0930\u094d\u092a\u0923* (dedication), have whispered secrets into this sandalwood box.  Techniques passed down through generations, each delicate curve a testament to a mother's love and a daughter's skill, imbue the wood with the quiet peace of a Mysore dawn.  Holding it, you cradle not just a treasure, but a piece of India's soul, carrying the artisan's *\u0906\u0936\u0940\u0930\u094d\u0935\u093e\u0926* (blessings) and a precious thread of *\u0935\u093f\u0930\u093e\u0938\u0924* (heritage).",
+    "price": 765.0,
+    "category": "Jewelry",
+    "subcategory": null,
+    "materials": [
+      "sandwalwood",
+      "natural polish"
+    ],
+    "dimensions": null,
+    "weight": null,
+    "stock_quantity": 5,
+    "images": [
+      "uploads/products/e07f1b83-e156-4bb4-b428-388d74c7072c/7ebed1f8-5d0e-4a69-bbc8-811325c0f939.jpg"
+    ],
+    "created_at": "2025-09-21T21:14:37.402344",
+    "updated_at": "2025-09-21T21:15:23.862423",
+    "status": "active",
+    "tags": [],
+    "featured": false
+  },
+  {
+    "id": "ab3dd89a-b4a0-4344-b4f4-083678ca6da4",
+    "artisan_id": "b3643631-f639-4dd7-9173-3e27ffd90b3d",
+    "name": "Handwoven Silk Scarf",
+    "description": "These hands, weathered and gentle,  have woven this silk scarf with unwavering *\u0938\u092e\u0930\u094d\u092a\u0923* (dedication), each thread a whisper of prayer.  The techniques, passed down through generations, are a song sung softly from mother to daughter, a legacy of artistry echoing through time. This piece, imbued with the vibrant colours of a Rajasthan sunset, carries the artisan's *\u0906\u0936\u0940\u0930\u094d\u0935\u093e\u0926* (blessings), a piece of India's heart to warm your soul and preserve a precious \u0935\u093f\u0930\u093e\u0938\u0924 (heritage).",
+    "price": 3500.0,
+    "category": "Clothing",
+    "subcategory": null,
+    "materials": [
+      "Pure Silk",
+      "Natural Dye",
+      "Gold Thread"
+    ],
+    "dimensions": null,
+    "weight": null,
+    "stock_quantity": 2,
+    "images": [
+      "uploads/products/ab3dd89a-b4a0-4344-b4f4-083678ca6da4/d4ed9635-45bb-4f82-9b6d-c4aacb66e80b.jpg"
+    ],
+    "created_at": "2025-09-21T21:34:43.769690",
+    "updated_at": "2025-09-21T21:35:13.927658",
+    "status": "active",
+      "tags": [],
+      "featured": false
+    }
+  ]
