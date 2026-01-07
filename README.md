@@ -1,78 +1,217 @@
-# 🎨 KALA KAKSH - AI-Powered Artisan Marketplace
+# 🎨 Kala Kaksh - AI-Powered Artisan Marketplace
 
-KALA KAKSH revolutionises the way Indian artisans showcase their craft online, built on **Google Cloud's cutting-edge AI stack**, this transforms simple product descriptions into compelling cultural narratives while providing enterprise-grade image processing and storage.
+<div align="center">
 
-##  Quick Start
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
+[![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)](https://flask.palletsprojects.com)
+[![Google Cloud](https://img.shields.io/badge/Google%20Cloud-Platform-4285F4.svg)](https://cloud.google.com)
+[![Vertex AI](https://img.shields.io/badge/Vertex%20AI-Enabled-orange.svg)](https://cloud.google.com/vertex-ai)
+[![Imagen AI](https://img.shields.io/badge/Imagen%20AI-3.0-red.svg)](https://cloud.google.com/vertex-ai/generative-ai/docs/image/overview)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-```bash
-# Install dependencies
-pip install -r requirements.txt
 
-# Run the application
-python app.py
+</div>
+
+##  Overview
+
+**Kala Kaksh** is a revolutionary platform that bridges the gap between traditional Indian artisans and modern buyers through the power of AI. Our platform combines authentic handcrafted treasures with cutting-edge technology, offering AI-generated room visualizations powered by Google's Vertex AI and Imagen 3.0.
+
+*"Where tradition meets technology, shaping the majestic future of artisan shopping"*
+
+## 🏛️ Project Architecture
+
+For better understanding of the complete project implementation, this contains the backend as well that handles core functionalities:
+
+- Database management and API endpoints
+- Product catalog and inventory management
+> This repository focuses on the AI-powered frontend features as well as the backend which handles core functionalities. 
+
+## ✨ Key Features
+
+### 🎭 For Artisans
+- **Digital Showcase**: Create beautiful profiles to display your craft and story
+- **Product Management**: Easily add and manage your handcrafted products
+- **AI Enhancement**: Leverage Vertex AI to enhance product descriptions
+- **Collaboration Network**: Connect with fellow artisans for partnerships
+- **Story Telling**: Share your artistic journey and cultural heritage
+
+### 🛍️ For Buyers
+- **AI Room Generation**: Visualize products in custom-generated rooms using Imagen 3.0
+- **Curated Discovery**: Browse authentic handcrafted items by category
+- **Artisan Stories**: Learn about the makers behind each product
+- **Smart Shopping**: Cart management and purchase history
+- **Personalized Experience**: Save preferences and wishlist items
+
+### 🤖 AI-Powered Features
+- **Real-time Image Generation**: Generate custom room designs
+- **Enhanced Descriptions**: AI-powered product and story enhancement
+- **Visual Commerce**: See how products look in beautifully designed spaces
+
+## 📸 Screenshots
+
+### Artisan Dashboard - Collaboration Network
+![WhatsApp Image 2025-09-21 at 22 38 37_68c8b558](https://github.com/user-attachments/assets/3c0a66bf-2dfd-4a11-a27d-6b467979adb6)
+
+*Connect with fellow artisans and build meaningful partnerships*
+
+### AI-Generated Room Visualization
+![WhatsApp Image 2025-09-21 at 22 28 12_de1da27e](https://github.com/user-attachments/assets/946c7e1b-c504-4d6b-b300-bea11adbb866)
+
+*Custom room generated with traditional Indian handicrafts using Google Imagen*
+
+### Buyer Shopping Experience
+![WhatsApp Image 2025-09-21 at 22 26 05_b34c5939](https://github.com/user-attachments/assets/7734a196-8773-4512-b1fe-522b188ef291)
+
+*Discover authentic handcrafted products by category*
+
+### Product Gallery with AI Visualization
+![WhatsApp Image 2025-09-21 at 22 25 33_d90ecec4](https://github.com/user-attachments/assets/8a413423-2683-47a3-934b-68e7a81abe64)
+
+*Browse pottery and ceramics in AI-generated traditional settings*
+
+### Welcome Experience
+![WhatsApp Image 2025-09-21 at 22 26 26_63be6328](https://github.com/user-attachments/assets/21e66031-900a-4d3a-8789-eb79f67bfe6b)
+
+*Beautiful introduction to the world of Indian handicrafts*
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.8 or higher
+- Google Cloud Project with Vertex AI enabled
+- Flask development environment
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/kala-kaksh.git
+   cd kala-kaksh
+   ```
+
+2. **Set up virtual environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Configure Google Cloud**
+   ```bash
+   # Set up your Google Cloud credentials
+   export GOOGLE_APPLICATION_CREDENTIALS="path/to/your/service-account-key.json"
+   ```
+
+5. **Update configuration**
+   Edit [`app.py`](Kala-kaksh_genai/app.py) and update:
+   ```python
+   PROJECT_ID = "your-google-cloud-project-id"
+   LOCATION = "your-preferred-location"  # e.g., "asia-south1"
+   ```
+
+6. **Run the application**
+   ```bash
+   cd Kala-kaksh_genai
+   python app.py
+   ```
+
+7. **Access the application**
+   Open your browser and navigate to `http://localhost:5000`
+
+## 🏗️ Project Structure
+
+```
+Kala-kaksh_genai/
+├── app.py                  # Main Flask application
+├── generate_images.py      # AI image generation utility
+├── static/                 # Static assets
+│   ├── style.css          # Main stylesheet
+│   ├── script.js          # Client-side JavaScript
+│   └── images/            # Product images
+│       ├── jewellery/
+│       ├── painting/
+│       └── saree/
+└── templates/             # HTML templates
+    ├── login.html         # Authentication page
+    ├── art_home.html      # Artisan dashboard
+    ├── buy_home.html      # Buyer dashboard
+    ├── loading.html       # AI generation loading page
+    └── product_detail.html # Product gallery
 ```
 
-**Access**: http://localhost:5000
+## 🔧 Technical Stack
 
-## 📸 Screenshots of the Seller Portal at the backend
+### Backend
+- **Flask**: Web framework for Python
+- **Google Vertex AI**: AI/ML platform for image generation
+- **Imagen 3.0**: State-of-the-art image generation model
 
-<img width="1887" height="989" alt="Screenshot 2025-09-23 130939" src="https://github.com/user-attachments/assets/b021663e-df8a-43fb-ada0-1238b989bcd6" />
+### Frontend
+- **HTML5 & CSS3**: Modern web standards
+- **JavaScript (ES6+)**: Interactive functionality
+- **Responsive Design**: Mobile-first approach
 
-<img width="1892" height="904" alt="Screenshot 2025-09-23 130954" src="https://github.com/user-attachments/assets/5e1d1862-6d54-4373-9484-3d45e2b1e2e4" />
+### AI Integration
+- **Vertex AI SDK**: Google Cloud AI platform integration
+- **Real-time Generation**: Dynamic image creation
+- **Base64 Encoding**: Efficient image data transfer
 
-<img width="1887" height="359" alt="Screenshot 2025-09-23 131007" src="https://github.com/user-attachments/assets/2f5f9e1c-bfbc-421b-ba54-7e6c6242bf7f" />
+## 🎨 Key Pages & Functionality
 
+### Authentication System
+- Google Sign-In integration
+- Role-based access (Artisan/Buyer)
+- Secure session management
 
+### Artisan Features
+- **Story Creation**: [`art_home.html`](Kala-kaksh_genai/templates/art_home.html)
+- **Product Management**: Add, edit, and showcase products
+- **AI Enhancement**: Improve descriptions with Vertex AI
+- **Collaboration**: Connect with other artisans
 
+### Buyer Features
+- **Product Discovery**: [`buy_home.html`](Kala-kaksh_genai/templates/buy_home.html)
+- **AI Room Generation**: Visualize products in custom spaces
+- **Shopping Cart**: Manage purchases and wishlist
+- **Artisan Profiles**: Learn about creators
 
+### AI Integration
+- **Image Generation**: [`/api/generate-realtime`](Kala-kaksh_genai/app.py) endpoint
+- **Custom Prompts**: Dynamic room generation based on product types
+- **Real-time Processing**: Live image generation and display
 
+## 🌐 Product Categories
 
+- **🥻 Handwoven Sarees**: Traditional silk and cotton sarees
+- **🎨 Paintings & Art**: Miniature paintings, folk art, contemporary pieces
+- **💎 Handcrafted Jewelry**: Silver, brass, and traditional jewelry
+- **🏺 Pottery & Ceramics**: Terracotta, blue pottery, ceramic crafts
+- **🥓 Handwoven Rugs**: Traditional carpets, dhurries, floor coverings
 
+### Development Setup
 
-## 🤖 Features
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-- **Artisan Registration** - Complete onboarding system
-- **AI Description Enhancement** - Gemini AI transforms basic descriptions into cultural stories
-- **Smart Image Processing** - Automatic optimization and cloud storage
-- **Real-time Preview** - Inline AI enhancement with instant feedback
+## 🙏 Acknowledgments
 
-## 🛠️ Tech Stack
+- **Artisan Community**: For preserving traditional crafts and inspiring this platform
+- **Google Cloud**: For providing cutting-edge AI capabilities through Vertex AI
+- **Flask Community**: For the robust web framework
+- **Open Source Contributors**: For making this project possible
 
-- **Backend**: Flask + Python
-- **AI**: Google Gemini 1.5 Flash
-- **Storage**: Google Cloud Storage 
-- **Data**: JSON-based 
-- **Frontend**: Vanilla HTML/CSS/JS
-
-## 📁 Project Structure
-
-```
-├── app.py              # Main Flask application
-|──config.py            # Configuration Settings
-├── models/             # Data models (Artisan, Product)
-├── services/           # Business logic & Google Cloud integration
-├── templates/          # Frontend interface
-├── data/               # JSON storage
-└── utils/              # Helper functions
-└── workflow.md        # Detailed workflow documentation
-```
-
-##  Demo Flow
-
-1. **Register Artisan** → Get unique ID
-2. **Create Product** → Basic product details
-3. **AI Enhancement** → Click "🤖 Enhance with Google AI"
-4. **Upload Images** → Automatic processing & storage
-5. **Live Product** → Complete marketplace listing
-
-## 🔧 Configuration
-
-Set environment variables in `.env`:
-```env
-GOOGLE_API_KEY="your-gemini-api-key"
-GOOGLE_CLOUD_PROJECT="your-project-id"
-USE_GOOGLE_CLOUD=true
-```
+<div align="center">
+  <p><strong>Made with ❤️ for preserving traditional Indian craftsmanship</strong></p>
+  <p><em>"Connecting hearts through hands, bridging tradition with technology"</em></p>
+</div>
 
 
 *For detailed workflow and technical documentation, see [`workflow.md`](workflow.md)*
