@@ -16,6 +16,8 @@
 
 **Kala Kaksh** is a revolutionary platform that bridges the gap between traditional Indian artisans and modern buyers through the power of AI. Our platform combines authentic handcrafted treasures with cutting-edge technology, offering AI-generated room visualizations powered by Google's Vertex AI and Imagen 3.0.
 
+[TRY IT HERE: ] (https://eureka-hacks-kala-kaksh-k694.vercel.app/)
+
 *"Where tradition meets technology, shaping the majestic future of artisan shopping"*
 
 ## 🏛️ Project Architecture
