@@ -15,16 +15,16 @@ LOCATION = "asia-south1"
 # Mock data to simulate a product database
 productCatalog = {
     "saree": [
-      { "name": "Banarasi Silk Saree", "price": 15999, "artist": "Meera Devi", "description": "Traditional gold zari work on pure silk", "image": r"C:\Users\DELL\Desktop\KK\static\images\saree\saree1.jpg" },
-      { "name": "Kanjeevaram Saree", "price": 12999, "artist": "Lakshmi Arts", "description": "South Indian temple border design", "image": r"C:\Users\DELL\Desktop\KK\static\images\saree\saree2.jpg" }
+      { "name": "Banarasi Silk Saree", "price": 15999, "artist": "Meera Devi", "description": "Traditional gold zari work on pure silk", "image": "/static/images/saree/saree1.jpg" },
+      { "name": "Kanjeevaram Saree", "price": 12999, "artist": "Lakshmi Arts", "description": "South Indian temple border design", "image": "/static/images/saree/saree2.jpg" }
     ],
     "painting": [
-      { "name": "Madhubani Painting", "price": 3999, "artist": "Sunita Jha", "description": "Traditional Bihar folk art on handmade paper", "image": r"C:\Users\DELL\Desktop\KK\static\images\painting\madhubani1.jpg" },
-      { "name": "Warli Art", "price": 2999, "artist": "Tribal Collective", "description": "Maharashtra tribal art with natural pigments", "image": r"C:\Users\DELL\Desktop\KK\static\images\painting\warli1.jpg" }
+      { "name": "Madhubani Painting", "price": 3999, "artist": "Sunita Jha", "description": "Traditional Bihar folk art on handmade paper", "image": "/static/images/painting/madhubani1.jpg" },
+      { "name": "Warli Art", "price": 2999, "artist": "Tribal Collective", "description": "Maharashtra tribal art with natural pigments", "image": "/static/images/painting/warli1.jpg" }
     ],
     "jewellery": [
-      { "name": "Silver Oxidized Necklace", "price": 2499, "artist": "Jaipur Jewels", "description": "Traditional Rajasthani silver jewelry", "image": r"C:\Users\DELL\Desktop\KK\static\images\jewellery\silver1.jpg" },
-      { "name": "Kundan Earrings", "price": 4999, "artist": "Royal Crafts", "description": "Gold-plated kundan with pearls", "image": r"C:\Users\DELL\Desktop\KK\static\images\jewellery\kundan1.jpg" }
+      { "name": "Silver Oxidized Necklace", "price": 2499, "artist": "Jaipur Jewels", "description": "Traditional Rajasthani silver jewelry", "image": "/static/images/jewellery/silver1.jpg" },
+      { "name": "Kundan Earrings", "price": 4999, "artist": "Royal Crafts", "description": "Gold-plated kundan with pearls", "image": "/static/images/jewellery/kundan1.jpg" }
     ]
 }
 
@@ -106,3 +106,6 @@ def generate_realtime_image():
 if __name__ == '__main__':
     # Running on 0.0.0.0 makes the server accessible on your network
     app.run(debug=True, host='0.0.0.0', port=5000)
+
+# For Vercel deployment
+handler = app
