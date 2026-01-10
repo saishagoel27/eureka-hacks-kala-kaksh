@@ -2,7 +2,9 @@ from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, 
+            template_folder='../templates',
+            static_folder='../static')
 CORS(app)
 
 # Mock data to simulate a product database
